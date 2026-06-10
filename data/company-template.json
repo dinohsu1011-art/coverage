@@ -1,0 +1,133 @@
+{
+  "_readme": "Field checklist for a coverage-data.js entry. Modeled on the FSLR entry — every field below is consumed by coverage-app.js. Dates are 'DD Mon YYYY'. Run `node validate.js` after adding an entry.",
+  "ticker": "TICKER",
+  "slug": "ticker",
+  "name": "Company Name, Inc.",
+  "exchange": "NYSE",
+  "sector": "Sector",
+  "status": "Draft",
+  "_status_rule": "Live = verified against model workbook AND current-quarter memo; Draft = anything less.",
+  "lastUpdate": "10 Jun 2026",
+  "legacyPage": "",
+  "valuation": {
+    "price": null,
+    "priceDate": null,
+    "target": 0,
+    "method": "12x FY+1 P/E",
+    "_note": "price is user-supplied (never invented); null renders 'PT only — price pending'. Upside is computed at render time from target/price."
+  },
+  "dataSources": [
+    {
+      "type": "Primary model workbook",
+      "path": "/Users/dinohsu/Desktop/Work/Coverage/TICKER/Model/TICKER Model.xlsx",
+      "sheets": ["Summary", "Quarterly Update", "PE Bands", "Assumptions"],
+      "note": "Source of truth for the series and the valuation block."
+    },
+    {
+      "type": "Latest memo",
+      "path": "/Users/dinohsu/Desktop/Work/Coverage/TICKER/Memos/TICKER_YYYYMMDD_許喬傑_EN.docx",
+      "sheets": [],
+      "note": "Rating, PT, close price + date, bull/risk points, competitive advantages."
+    },
+    {
+      "type": "Quarter folder",
+      "path": "/Users/dinohsu/Desktop/Work/Coverage/TICKER/Earnings Reports/2026 Q1",
+      "sheets": [],
+      "note": "Press release / presentation backing the latest quarter's figures."
+    }
+  ],
+  "headline": "One-line investment setup.",
+  "summary": "A concise paragraph: what the company does, what mattered in the latest quarter, and the central debate the dashboard should orient around.",
+  "tags": ["Theme", "Product", "End market", "Catalyst"],
+  "stats": [
+    { "label": "Q1'26 Revenue", "value": "$0.0B", "delta": "+0% YoY" },
+    { "label": "Q1'26 EPS", "value": "$0.00", "delta": "+0% YoY" },
+    { "label": "Key operating stat", "value": "0", "delta": "context" },
+    { "label": "Backlog / KPI", "value": "$0.0B", "delta": "+0% YoY" }
+  ],
+  "facts": [
+    { "label": "Core exposure", "value": "Primary business exposure" },
+    { "label": "Model setup", "value": "FY26e revenue / EPS; FY27e revenue / EPS" },
+    { "label": "Valuation frame", "value": "Multiple x FY27e metric -> PT (vs historical range)" },
+    { "label": "Watch item", "value": "Most important unresolved issue" }
+  ],
+  "kpis": [
+    { "label": "FY26e metric", "value": "0", "note": "context" },
+    { "label": "FY27e metric", "value": "0", "note": "valuation base" },
+    { "label": "KPI 3", "value": "0", "note": "context" },
+    { "label": "KPI 4", "value": "0", "note": "context" }
+  ],
+  "thesis": {
+    "bull": ["Bull point one (sourced from memo)", "Bull point two", "Bull point three"],
+    "risk": ["Risk point one", "Risk point two", "Risk point three"],
+    "watch": ["Watch item one", "Watch item two", "Watch item three"]
+  },
+  "charts_conventions": {
+    "types": ["stackedBar", "bar", "line", "doughnut", "comboBarLine"],
+    "units": ["currencyB", "currencyM", "currency", "percent", "percentPlain", "multiple", "ratio", "gw", "plain"],
+    "rules": [
+      "Each key chart gets an annual + quarterly pair: 'tkr-revenue' and 'tkr-revenue-q'.",
+      "forecastStart: index where estimates begin (line dashes, points drop).",
+      "Per-dataset unit + yAxisID 'y1' for dual axis; configure axes.y1 when used.",
+      "Line-above-bars is renderer-owned — never set draw order in data.",
+      "Chart ids are globally unique: always prefix with the ticker.",
+      "dashed: true renders a 5,5 dashed reference/scenario line."
+    ]
+  },
+  "charts": [
+    {
+      "id": "ticker-revenue",
+      "title": "Revenue and Gross Margin",
+      "subtitle": "$M bars; margin line, FY23-FY27e",
+      "type": "comboBarLine",
+      "unit": "currencyB",
+      "labels": ["FY23", "FY24", "FY25", "FY26e", "FY27e"],
+      "datasets": [
+        { "label": "Revenue", "data": [0, 0, 0, 0, 0], "yAxisID": "y", "forecastStart": 3 },
+        { "label": "Gross margin", "data": [0, 0, 0, 0, 0], "type": "line", "unit": "percentPlain", "yAxisID": "y1", "fill": false }
+      ],
+      "axes": {
+        "y": { "unit": "currencyB", "title": "Revenue" },
+        "y1": { "unit": "percentPlain", "title": "Gross margin", "suggestedMin": 0, "suggestedMax": 60 }
+      },
+      "caption": "What the chart should prove."
+    },
+    {
+      "id": "ticker-revenue-q",
+      "title": "Revenue and Gross Margin (Quarterly)",
+      "subtitle": "$M bars; margin line, 1Q23-4Q27e",
+      "type": "comboBarLine",
+      "unit": "currencyM",
+      "labels": ["1Q23", "...20 quarterly labels...", "4Q27e"],
+      "datasets": [
+        { "label": "Revenue", "data": [0], "yAxisID": "y", "forecastStart": 13 },
+        { "label": "Gross margin", "data": [0], "type": "line", "unit": "percentPlain", "yAxisID": "y1", "fill": false }
+      ],
+      "axes": {
+        "y": { "unit": "currencyM", "title": "Revenue" },
+        "y1": { "unit": "percentPlain", "title": "Gross margin" }
+      },
+      "caption": "Quarterly counterpart of the annual chart."
+    },
+    {
+      "id": "ticker-eps",
+      "title": "EPS",
+      "subtitle": "$/share, FY23-FY27e",
+      "type": "line",
+      "unit": "currency",
+      "labels": ["FY23", "FY24", "FY25", "FY26e", "FY27e"],
+      "datasets": [{ "label": "EPS", "data": [0, 0, 0, 0, 0], "forecastStart": 3 }],
+      "caption": "Annual EPS with forecast dashed."
+    },
+    {
+      "id": "ticker-mix",
+      "title": "FY25 Revenue Mix",
+      "subtitle": "$M by segment",
+      "type": "doughnut",
+      "unit": "currencyB",
+      "labels": ["Segment A", "Segment B"],
+      "datasets": [{ "label": "FY25 Revenue", "data": [0, 0] }],
+      "caption": "Latest-year mix."
+    }
+  ]
+}

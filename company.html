@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Coverage Company Summary</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
+<script src="data/coverage-data.js" defer></script>
+<script src="coverage-app.js" defer></script>
+</head>
+<body data-page="company">
+<div class="shell">
+  <div class="topbar">
+    <div class="brand" id="brand">Coverage / Companies</div>
+    <nav id="topbarNav"></nav>
+  </div>
+
+  <header class="standard-header">
+    <div class="eyebrow"><span class="dot"></span><span id="companyEyebrow"></span></div>
+    <div class="standard-title-row">
+      <div>
+        <h1 class="display" id="companyHeadline"></h1>
+        <p class="subhead" id="companySummary"></p>
+      </div>
+      <div class="company-actions" id="companyActions"></div>
+    </div>
+    <div class="tag-row" id="companyTags"></div>
+    <div class="hero-stats" id="companyStats"></div>
+    <div class="valuation-line" id="companyValuation"></div>
+  </header>
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">01 / Snapshot</div>
+      <h2 class="section-title">Standard <em>summary</em>.</h2>
+    </div>
+    <div class="standard-two-col">
+      <div class="facts-grid" id="factsGrid"></div>
+      <div class="kpi-grid" id="kpiGrid"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">02 / Dashboard</div>
+      <h2 class="section-title">Workbook-backed <em>sources</em>.</h2>
+    </div>
+    <div class="source-grid" id="sourceGrid"></div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">03 / Dashboard</div>
+      <h2 class="section-title">Charts that travel <em>company to company</em>.</h2>
+    </div>
+    <div class="chart-grid" id="chartGrid"></div>
+  </section>
+
+  <section id="finSection" style="display:none">
+    <div class="section-header">
+      <div class="section-num">04 / Financials</div>
+      <h2 class="section-title">Income <em>statement</em>.</h2>
+    </div>
+    <div class="fin-controls" id="finControls"></div>
+    <div id="finStatement"></div>
+    <div class="caption" id="finNote"></div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">05 / Debate</div>
+      <h2 class="section-title">Bull case, risks, and <em>watch items</em>.</h2>
+    </div>
+    <div class="thesis-grid" id="thesisGrid"></div>
+  </section>
+
+  <footer>
+    <div id="companyFooterLeft"></div>
+    <div id="companyFooterRight"></div>
+  </footer>
+</div>
+</body>
+</html>

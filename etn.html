@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Eaton Corporation — Investment Thesis</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="shell">
+
+  <div class="topbar">
+    <div class="brand">Coverage / Industrials &amp; Power</div>
+    <nav>
+      <a href="index.html">Index</a>
+      <a href="company.html?t=ETN">ETN summary</a>
+      <a href="etn.html" class="current">Deep dive</a>
+    </nav>
+  </div>
+
+  <div class="frozen-banner">Frozen deep-dive — data as of 01 May 2026. Live summary: <a href="company.html?t=ETN">company.html?t=ETN</a></div>
+
+  <!-- HERO -->
+  <header>
+    <div class="eyebrow"><span class="dot"></span>Eaton Corporation plc · NYSE: ETN · Last update 01 May 2026</div>
+    <h1 class="display">Power, <em>plumbed</em> for AI.</h1>
+    <p class="subhead">
+      Eaton sells the breakers, busway, switchgear and UPS that move electricity inside data centers,
+      utilities and factories. The story now sits on a single fault line:
+      hyperscaler power demand running at multi-decade build rates against a one-year capacity-ramp
+      margin trough and a Mobility spin that mechanically lifts the consolidated mix.
+    </p>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="label">FY25 Revenue</div>
+        <div class="value">$27.4<span class="unit">B</span></div>
+        <div class="delta">+10.3% YoY</div>
+      </div>
+      <div class="stat">
+        <div class="label">FY25 Adj. EPS</div>
+        <div class="value">$12.07</div>
+        <div class="delta">+11.8% YoY</div>
+      </div>
+      <div class="stat">
+        <div class="label">FY25 Segment Margin</div>
+        <div class="value">24.5<span class="unit">%</span></div>
+        <div class="delta">+50 bps YoY</div>
+      </div>
+      <div class="stat">
+        <div class="label">EA Backlog</div>
+        <div class="value">$13.2<span class="unit">B</span></div>
+        <div class="delta">+30.6% YoY</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 01 — Setup -->
+  <section>
+    <div class="section-header">
+      <div class="section-num">01 / The setup</div>
+      <h2 class="section-title">A power-management compounder with one <em>very large</em> tailwind.</h2>
+    </div>
+    <div class="section-body">
+      <div class="col-meta">Thesis</div>
+      <div class="col-body">
+        <p>
+          Eaton is an Irish-domiciled, U.S.-managed industrial that has spent two decades rotating from
+          truck axles toward electrical equipment. After the 2012 Cooper acquisition and the 2017/2021
+          divestitures of lighting and hydraulics, <strong>Electrical and Aerospace now generate ~88% of
+          revenue and ~93% of segment profit.</strong> The remaining Vehicle and eMobility businesses
+          will be spun off into a separately-listed Mobility company by end of Q1 2027.
+        </p>
+        <p>
+          The 2026 plan is a clean three-line guide: organic revenue <strong>+7–9%</strong>, segment
+          margin <strong>24.6–25.0%</strong>, adjusted EPS <strong>$13.00–$13.50</strong>. What makes
+          this guide unusual is the gap between the headline numbers and the order book underneath:
+          Electrical Americas Q4 orders rose more than 50% YoY and the segment ended 2025 with a record
+          $13.2B backlog (+31% YoY). Inside that, data-center orders grew ~200% YoY in Q4.
+        </p>
+        <p>
+          Two known frictions sit on top of that order strength: a <strong>130 bps margin drag in 2026</strong>
+          from $1.5B of capacity expansion (24 sites, front-loaded into Q1), and a paused buyback to fund
+          the pending <strong>Boyd Thermal</strong> close — which lifts data-center content from ~$2.9M to
+          ~$3.4M per MW.
+        </p>
+      </div>
+    </div>
+
+    <blockquote class="pull">
+      "U.S. large data center construction backlog stands at 206 GW — eleven years at 2025 build rates."
+      <cite>Management, Q4 2025 Earnings Call</cite>
+    </blockquote>
+  </section>
+
+  <!-- 02 — Revenue trajectory -->
+  <section>
+    <div class="section-header">
+      <div class="section-num">02 / Revenue</div>
+      <h2 class="section-title">Five segments, <em>two engines</em>.</h2>
+    </div>
+    <div class="section-body">
+      <div class="col-meta">Composition</div>
+      <div class="col-body">
+        <p>
+          Electrical Americas is the engine: <strong>$13.3B of FY25 revenue at a 29.9% segment margin</strong>,
+          growing 16.1% in 2025 with data center as the disproportionate driver inside it. Aerospace
+          quietly compounds at low-teens organic with a 23.8% margin and a record $4.3B backlog.
+          Electrical Global is the smaller international twin, finally inflecting in 2025 (+9.1% on
+          European stabilization). Mobility is in managed decline ahead of the spin.
+        </p>
+        <p>
+          The model carries <strong>FY26 revenue at $29.9B (+8.9%)</strong> and <strong>FY27 at $32.5B
+          (+8.9%)</strong>, both anchored to the management 2026 guide and the long-range 2030 framework
+          (6–9% organic, 28% segment margin, 12%+ EPS CAGR).
+        </p>
+      </div>
+    </div>
+
+    <div class="figure">
+      <div class="chart-wrap">
+        <div class="chart-title">Revenue by segment, FY23–FY27e</div>
+        <div class="chart-sub">$M · Source: company filings, internal model</div>
+        <div class="chart-canvas tall"><canvas id="revStack"></canvas></div>
+      </div>
+      <div class="caption">
+        Electrical Americas alone adds <strong>~$3.1B of incremental revenue across FY26–FY27</strong>,
+        driving 60%+ of the consolidated growth.
+      </div>
+    </div>
+
+    <div class="figure">
+      <div class="chart-wrap">
+        <div class="chart-title">Quarterly revenue by segment, Q1'24 → Q4'27e</div>
+        <div class="chart-sub">$M · forecast quarters lighter · Q2-peaked seasonality</div>
+        <div class="chart-canvas tall"><canvas id="revStackQuarterly"></canvas></div>
+      </div>
+      <div class="caption">
+        Eaton's quarterly cadence is Q2-peaked across Electrical Global and Aerospace; Mobility
+        tracks the truck cycle. Electrical Americas is the steady compounder — sequential growth
+        every quarter from Q1'25 onward as data-center backlog converts and the 24-site capacity
+        program comes online.
+      </div>
+    </div>
+
+    <div class="figure">
+      <div class="chart-wrap">
+        <div class="chart-title">Electrical Americas — capacity expansion ramp</div>
+        <div class="chart-sub">$M · incremental annualized revenue capability coming online by quarter · cumulative line</div>
+        <div class="chart-canvas tall"><canvas id="capacityRamp"></canvas></div>
+      </div>
+      <div class="caption">
+        $1.5B of capex across <strong>24 sites</strong>, front-loaded into Q1'26. Bars show the
+        incremental annualized revenue capability unlocked each quarter as sites enter production;
+        the cumulative line tracks the run-rate build, reaching ~$1.6B annualized by mid-FY27 — i.e.,
+        capacity sufficient to underwrite the FY26→FY27 EA revenue step from $14.7B to $16.4B without
+        relying on incremental hiring or third shifts. The ramp is steepest in Q1–Q2 2026, consistent
+        with mgmt's "front-loaded" framing on the Q4 2025 call.
+      </div>
+    </div>
+
+    <div class="figure-row">
+      <div class="figure">
+        <div class="chart-wrap">
+          <div class="chart-title">FY25 revenue mix</div>
+          <div class="chart-sub">Total: $27.4B</div>
+          <div class="chart-canvas"><canvas id="mixDonut"></canvas></div>
+        </div>
+      </div>
+      <div class="figure">
+        <div class="chart-wrap">
+          <div class="chart-title">Segment operating margin, FY25</div>
+          <div class="chart-sub">% · sorted by size</div>
+          <div class="chart-canvas"><canvas id="marginBars"></canvas></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="figure">
+      <div class="chart-wrap">
+        <div class="chart-title">Annual segment margin trajectory</div>
+        <div class="chart-sub">% · FY23A → FY27e · total segment margin highlighted</div>
+        <div class="chart-canvas tall"><canvas id="marginGrowth"></canvas></div>
+      </div>
+      <div class="caption">
+        Total segment margin steps from <strong>22.0% in FY23 to 25.6% in FY27e</strong> (~360 bps over
+        four years; 2030 framework target 28.0%). The mix is non-obvious: Electrical Americas
+        actually dipped 30 bps in FY25 (30.2% → 29.9%) under ~100 bps of capacity-ramp absorption,
+        but Aerospace (+90 bps) and Electrical Global (+100 bps) more than offset. FY26 Total at
+        24.9% lands within the management 24.6–25.0% guide band.
+      </div>
+    </div>
+
+    <div class="figure">
+      <div class="chart-wrap">
+        <div class="chart-title">Quarterly margin trajectory — the 2026 trough</div>
+        <div class="chart-sub">% · Q1'24 → Q4'27e · forecast quarters dashed</div>
+        <div class="chart-canvas tall"><canvas id="marginQuarterly"></canvas></div>
+      </div>
+      <div class="caption">
+        Each segment follows its own historical Q1–Q4 seasonality (Aerospace Q3-peaks, Electrical
+        Global Q2-peaks, Mobility tracks the truck cycle). On top of that, Electrical Americas
+        absorbs an incremental ramp-drag overlay in 2026: <strong>~250 bps Q1, ~150 Q2, ~80 Q3, ~50
+        Q4</strong>, weighted-averaging to mgmt's 130 bps full-year EA drag. EA Q1'26 lands at
+        <strong>~26.7%</strong> (a 310 bps QoQ drop from Q4'25, not the 430 bps a "force-the-Q1-guide"
+        decomposition would imply). Total Q1'26 → <strong>23.0%</strong> — sits ~60 bps above mgmt's
+        22.4% mid-guide, leaving a small cushion for the kind of pricing power that absorbed the 100
+        bps drag in 2025.
+      </div>
+    </div>
+
+    <table class="dt">
+      <thead>
+        <tr>
+          <th>Segment</th>
+          <th>FY23</th><th>FY24</th><th>FY25</th>
+          <th>FY26e</th><th>FY27e</th>
+          <th>FY25 Margin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="row-label">Electrical Americas</td><td>10,098</td><td>11,436</td><td class="amber">13,276</td><td>14,736</td><td>16,357</td><td class="amber">29.9%</td></tr>
+        <tr><td class="row-label">Electrical Global</td><td>6,084</td><td>6,248</td><td>6,815</td><td>7,190</td><td>7,585</td><td>19.4%</td></tr>
+        <tr><td class="row-label">Aerospace</td><td>3,413</td><td>3,744</td><td>4,249</td><td>4,631</td><td>5,048</td><td>23.8%</td></tr>
+        <tr><td class="row-label">Mobility (Vehicle)</td><td>2,965</td><td>2,790</td><td class="red">2,505</td><td>3,327</td><td>3,560</td><td class="red">16.7%</td></tr>
+        <tr><td class="row-label">eMobility</td><td>636</td><td>662</td><td>604</td><td>—</td><td>—</td><td class="red">(2.3%)</td></tr>
+        <tr class="total"><td>Total revenue</td><td>23,196</td><td>24,880</td><td>27,449</td><td>29,884</td><td>32,550</td><td>24.5%</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 03 — Data center -->
+  <section>
+    <div class="section-header">
+      <div class="section-num">03 / Data center</div>
+      <h2 class="section-title">The single largest <em>swing factor</em> in the model.</h2>
+    </div>
+    <div class="section-body">
+      <div class="col-meta">Demand</div>
+      <div class="col-body">
+        <p>
+          Data center is roughly <strong>21% of FY25 sales</strong> and grew ~49% in the Americas. The
+          quarterly print accelerated through 2025: orders +70% YoY in Q3, then +200% YoY in Q4.
+          Book-to-bill in the Electrical Americas data-center vertical ran 1.7x in Q3 — backlog is
+          building, not converting.
+        </p>
+        <p>
+          Eaton's <strong>content per MW is rising</strong> from ~$2.9M today to ~$3.4M after Boyd
+          Thermal closes, capturing the inner-loop liquid cooling layer (cold plates, CDUs) that sits
+          closest to the chips. The Investor Day TAM range was $1.2–2.9M/MW; current portfolio is
+          already at the high end, and the post-Boyd trajectory pushes through it.
+        </p>
+        <p>
+          The mix is also shifting. <strong>FY25 orders were ~50/50 AI versus cloud, but FY25 revenue
+          recognition was still ~30% AI / 70% cloud</strong> — i.e. the AI-driven backlog is still in
+          front of revenue, not behind it.
+        </p>
+      </div>
+    </div>
+
+    <div class="figure-row">
+      <div class="figure">
+        <div class="chart-wrap">
+          <div class="chart-title">Data-center orders growth (YoY)</div>
+          <div class="chart-sub">Electrical Americas, % · Q3'25 vs Q4'25</div>
+          <div class="chart-canvas"><canvas id="dcOrders"></canvas></div>
+        </div>
+      </div>
+      <div class="figure">
+        <div class="chart-wrap">
+          <div class="chart-title">FY25 data-center mix</div>
+          <div class="chart-sub">Orders vs. revenue · AI cloud share</div>
+          <div class="chart-canvas"><canvas id="aiMix"></canvas></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="figure">
+      <div class="chart-wrap">
+        <div class="chart-title">Content per MW: where Eaton plays in the stack</div>
+        <div class="chart-sub">$M / MW · current vs. post-Boyd vs. Investor Day TAM range</div>
+        <div class="chart-canvas short"><canvas id="contentPerMW"></canvas></div>
+      </div>
+      <div class="caption">
+        Boyd Thermal close lifts accessible content from <strong>$2.9M/MW to $3.4M/MW</strong>, pushing
+        the platform above the prior Investor Day high end.
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 — Backlog -->
+  <section>
+    <div class="section-header">
+      <div class="section-num">04 / Backlog</div>
+      <h2 class="section-title">Multi-year visibility, <em>not a single quarter's miracle</em>.</h2>
+    </div>
+    <div class="section-body">
+      <div class="col-meta">Coverage</div>
+      <div class="col-body">
+        <p>
+          Combined Electrical Americas + Aerospace backlog ended 2025 at <strong>$19.6B</strong>, up from
+          $3.8B at year-end 2019. Electrical Americas alone holds $13.2B (+31% YoY) with book-to-bill of
+          ~1.2x. Aerospace runs a $4.3B backlog (+16% YoY).
+        </p>
+        <p>
+          Beyond the backlog, Eaton tracks an internal database of capital projects ≥$1B across North
+          America. The pipeline is now <strong>$3.0T spanning 866 projects</strong>, with data centers
+          54% of YTD announcements and the rest mostly U.S. reshoring. Projects start at a ~16% rate;
+          Eaton wins ~40% of what it bids on; megaproject revenue grew ~30% in 2025 and converts over
+          3–5 years.
+        </p>
+      </div>
+    </div>
+
+    <div class="figure">
+      <div class="chart-wrap">
+        <div class="chart-title">Electrical Americas backlog</div>
+        <div class="chart-sub">$M · quarter-end</div>
+        <div class="chart-canvas"><canvas id="backlogBars"></canvas></div>
+      </div>
+      <div class="caption">
+        Backlog has compounded at a <strong>+31% YoY</strong> exit run-rate while the segment itself
+        grew ~16% — the gap is forward revenue that has already been booked.
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 — Earnings power -->
+  <section>
+    <div class="section-header">
+      <div class="section-num">05 / Earnings</div>
+      <h2 class="section-title">EPS compounds at <em>low double-digits</em> through the spin.</h2>
+    </div>
+    <div class="section-body">
+      <div class="col-meta">Drivers</div>
+      <div class="col-body">
+        <p>
+          Adjusted EPS has compounded at ~15% from $9.12 in FY23 to $12.07 in FY25. Management's 2026
+          guide of <strong>$13.00–$13.50</strong> is +10% at the midpoint despite the capacity-ramp
+          margin drag and a paused buyback (~$0 of repurchases to fund Boyd). The model carries
+          <strong>FY26e at $13.50 and FY27e at $15.30</strong>, in line with the long-range 12%+ EPS
+          CAGR framework.
+        </p>
+        <p>
+          A point worth flagging: 2026 EPS growth is <strong>essentially all operational</strong> — no
+          buyback help, no FX, no Boyd revenue (deal hasn't closed). If revenue ramps faster than the
+          cost base in H2, the high end of guide is achievable; if the H1 ramp slips, the trough
+          extends.
+        </p>
+      </div>
+    </div>
+
+    <div class="figure">
+      <div class="chart-wrap">
+        <div class="chart-title">Adjusted diluted EPS</div>
+        <div class="chart-sub">$ per share · FY23A → FY27e</div>
+        <div class="chart-canvas"><canvas id="epsLine"></canvas></div>
+      </div>
+      <div class="caption">
+        EPS path: <strong>$9.12 → $10.80 → $12.07 → $13.50 → $15.30</strong> · ~14% CAGR FY23–FY27e.
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 — Valuation -->
+  <section>
+    <div class="section-header">
+      <div class="section-num">06 / Valuation</div>
+      <h2 class="section-title">Trading at the <em>top of its history</em>.</h2>
+    </div>
+    <div class="section-body">
+      <div class="col-meta">Multiples</div>
+      <div class="col-body">
+        <p>
+          On the model's FY+1 (rolling) EPS, ETN trades at <strong>28.3x</strong> — at the top of the
+          three-year range (15.9x – 28.3x), versus a median of 25.9x and an average of 23.8x. The
+          re-rating happened in 2024 as the data-center order book broke higher; the question is whether
+          that multiple holds while EPS is doing the work in 2026.
+        </p>
+        <p>
+          The model's working target uses <strong>30x on FY27e EPS of $15.30</strong>, which prices the
+          stock at <strong>$459 vs. $433 spot — ~6% upside</strong>. That is a thin margin of safety;
+          the case requires either margin upside on Boyd integration or a higher long-range multiple
+          tied to a cleaner post-spin mix.
+        </p>
+      </div>
+    </div>
+
+    <div class="figure">
+      <div class="chart-wrap">
+        <div class="chart-title">Stock price vs. P/FY+1 multiple bands</div>
+        <div class="chart-sub">Daily close · 2023 → present · bands at 16x / 21x / 26x / 31x / 36x</div>
+        <div class="chart-canvas tall"><canvas id="priceBands"></canvas></div>
+      </div>
+      <div class="caption">
+        Current $433 print sits right at the <strong>26x band on FY+1</strong> EPS — historically
+        median, but the 26x line itself has lifted because forward EPS keeps stepping higher.
+      </div>
+    </div>
+
+    <table class="dt">
+      <thead>
+        <tr><th>Bear</th><th colspan="2">Base (model)</th><th>Bull</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="row-label">P/E multiple</td>
+          <td>21x (avg − 1σ)</td>
+          <td class="amber">30x (model target)</td>
+          <td>36x (cycle peak)</td>
+        </tr>
+        <tr>
+          <td class="row-label">FY27e EPS</td>
+          <td>$15.30</td>
+          <td class="amber">$15.30</td>
+          <td>$15.30</td>
+        </tr>
+        <tr class="total">
+          <td>Implied price</td>
+          <td class="red">$321</td>
+          <td class="amber">$459</td>
+          <td class="teal">$551</td>
+        </tr>
+        <tr>
+          <td class="row-label">vs. $433 spot</td>
+          <td class="red">−26%</td>
+          <td class="amber">+6%</td>
+          <td class="teal">+27%</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 07 — Watch list -->
+  <section>
+    <div class="section-header">
+      <div class="section-num">07 / Watch list</div>
+      <h2 class="section-title">What changes the <em>print</em>.</h2>
+    </div>
+
+    <div class="watchlist">
+      <div class="item">
+        <div class="num">01</div>
+        <div class="body">
+          <div class="head">Q1 2026 segment-margin trough</div>
+          <div class="desc">
+            Guide of 22.2–22.6% segment margin in Q1 — the front-loaded capacity-ramp drag. Anything
+            below 22% extends the trough into Q2 and pressures the FY range.
+          </div>
+        </div>
+        <div class="tag risk">Risk</div>
+      </div>
+      <div class="item">
+        <div class="num">02</div>
+        <div class="body">
+          <div class="head">Boyd Thermal close + integration</div>
+          <div class="desc">
+            ~$1.7B of expected 2026 revenue, lifts content per MW to $3.4M. Risk is timing slippage and
+            inner-loop tech disruption from next-gen NVIDIA cooling architectures.
+          </div>
+        </div>
+        <div class="tag bull">Bull</div>
+      </div>
+      <div class="item">
+        <div class="num">03</div>
+        <div class="body">
+          <div class="head">Hyperscaler capex pause</div>
+          <div class="desc">
+            Order book is now 12–18 months out (vs. multi-year). A capex pause from Microsoft, Meta,
+            Amazon or Google shows up faster than it would have in 2023.
+          </div>
+        </div>
+        <div class="tag risk">Risk</div>
+      </div>
+      <div class="item">
+        <div class="num">04</div>
+        <div class="body">
+          <div class="head">Mobility spin (target Q1 2027)</div>
+          <div class="desc">
+            Mechanical mix uplift: removes $3B of slow-growth, mid-margin revenue. Watch for stranded
+            costs and the post-spin capital allocation framework.
+          </div>
+        </div>
+        <div class="tag neutral">Catalyst</div>
+      </div>
+      <div class="item">
+        <div class="num">05</div>
+        <div class="body">
+          <div class="head">CFO transition</div>
+          <div class="desc">
+            Olivier Leonetti departs April 1, 2026. Adds execution risk to a year that already carries a
+            margin trough, the Boyd close, and the spin announcement.
+          </div>
+        </div>
+        <div class="tag neutral">Watch</div>
+      </div>
+      <div class="item">
+        <div class="num">06</div>
+        <div class="body">
+          <div class="head">Megaproject conversion</div>
+          <div class="desc">
+            $3.0T pipeline; ~16% start rate; Eaton wins ~40% of bids; converts over 3–5 years.
+            Megaproject revenue grew ~30% in 2025. Watch the start-rate, not just the announcement
+            count.
+          </div>
+        </div>
+        <div class="tag bull">Bull</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>Coverage / ETN · v1.0</div>
+    <div>Sources: company filings, Q1–Q4 2025 earnings transcripts, internal model</div>
+  </footer>
+</div>
+
+<script>
+// ---------- Chart.js global defaults — Vellum journal ----------
+Chart.defaults.font.family = "'Inter', system-ui, sans-serif";
+Chart.defaults.font.size = 12;
+Chart.defaults.color = "#3d3d3a";
+Chart.defaults.borderColor = "#dedcd1";
+Chart.defaults.elements.line.tension = 0.32;
+Chart.defaults.plugins.legend.labels.boxWidth = 10;
+Chart.defaults.plugins.legend.labels.boxHeight = 10;
+Chart.defaults.plugins.legend.labels.usePointStyle = true;
+Chart.defaults.plugins.legend.labels.pointStyle = 'rectRounded';
+Chart.defaults.plugins.legend.labels.font = { size: 12, weight: '400' };
+Chart.defaults.plugins.tooltip.backgroundColor = '#141413';
+Chart.defaults.plugins.tooltip.titleColor = '#faf9f5';
+Chart.defaults.plugins.tooltip.bodyColor = '#faf9f5';
+Chart.defaults.plugins.tooltip.borderColor = '#1f1e1d';
+Chart.defaults.plugins.tooltip.cornerRadius = 9.6;
+Chart.defaults.plugins.tooltip.padding = 12;
+Chart.defaults.plugins.tooltip.titleFont = { weight: '500', size: 12 };
+
+const COLORS = {
+  bg:        "#faf9f5",
+  surface:   "#ffffff",
+  ink:       "#141413",
+  ink2:      "#3d3d3a",
+  ink3:      "#73726c",
+  ink4:      "#9c9a92",
+  parchment: "#dedcd1",
+  rule:      "#dedcd1",
+  azure:     "#ccdbe8",
+  terra:     "#d97757",
+  terraSoft: "rgba(217,119,87,0.78)",
+  terraFaint:"rgba(217,119,87,0.12)",
+  // Stacked-bar palette: terra cotta highlight on top of warm neutrals
+  s1: "#d97757", // accent — primary segment
+  s2: "#73726c", // graphite-warm
+  s3: "#a8a298", // warm stone
+  s4: "#ccdbe8", // pale azure secondary
+  s5: "#dedcd1"  // parchment
+};
+
+const gridStyle = {
+  color: COLORS.parchment,
+  drawTicks: false,
+  drawBorder: false,
+  lineWidth: 1
+};
+
+// ============================================================
+// 1. Revenue stacked bars FY23–FY27e
+// ============================================================
+const years = ["FY23","FY24","FY25","FY26e","FY27e"];
+const revData = {
+  EA:   [10098, 11436, 13276, 14736, 16357],
+  EG:   [6084, 6248, 6815, 7190, 7585],
+  Aero: [3413, 3744, 4249, 4631, 5048],
+  Mob:  [2965, 2790, 2505, 3327, 3560],
+  eMob: [636, 662, 604, 0, 0]
+};
+new Chart(document.getElementById('revStack'), {
+  type: 'bar',
+  data: {
+    labels: years,
+    datasets: [
+      { label: 'Electrical Americas', data: revData.EA, backgroundColor: COLORS.terra, borderRadius: 2, stack: 'rev' },
+      { label: 'Electrical Global',   data: revData.EG, backgroundColor: COLORS.s2, stack: 'rev' },
+      { label: 'Aerospace',           data: revData.Aero, backgroundColor: COLORS.s3, stack: 'rev' },
+      { label: 'Mobility',            data: revData.Mob, backgroundColor: COLORS.azure, stack: 'rev' },
+      { label: 'eMobility',           data: revData.eMob, backgroundColor: COLORS.parchment, stack: 'rev' }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'bottom', align: 'start' },
+      tooltip: {
+        callbacks: {
+          label: c => `${c.dataset.label}: $${(c.parsed.y/1000).toFixed(2)}B`,
+          footer: items => `Total: $${(items.reduce((s,i)=>s+i.parsed.y,0)/1000).toFixed(2)}B`
+        }
+      }
+    },
+    scales: {
+      x: { grid: { display: false }, stacked: true },
+      y: {
+        stacked: true,
+        grid: gridStyle,
+        ticks: { callback: v => '$' + (v/1000).toFixed(0) + 'B' }
+      }
+    }
+  }
+});
+
+// ============================================================
+// 1b. Quarterly revenue by segment, Q1'24 → Q4'27e
+// ============================================================
+// Annual totals tied to FY24-FY27e. Q2-peaked seasonality across EG/Aero; EA steady compounder.
+const qLabelsRev = [
+  "Q1'24","Q2'24","Q3'24","Q4'24",
+  "Q1'25","Q2'25","Q3'25","Q4'25",
+  "Q1'26","Q2'26e","Q3'26e","Q4'26e",
+  "Q1'27e","Q2'27e","Q3'27e","Q4'27e"
+];
+// Sums per fiscal year match annual totals above.
+const qEA = [
+  2715, 2900, 2920, 2901,    // FY24 → 11,436
+  3170, 3360, 3375, 3371,    // FY25 → 13,276
+  3510, 3700, 3760, 3766,    // FY26e → 14,736
+  3920, 4115, 4170, 4152     // FY27e → 16,357
+];
+const qEG = [
+  1480, 1650, 1580, 1538,    // FY24 → 6,248
+  1610, 1810, 1730, 1665,    // FY25 → 6,815
+  1690, 1900, 1830, 1770,    // FY26e → 7,190
+  1790, 2000, 1930, 1865     // FY27e → 7,585
+];
+const qAero = [
+  900, 940, 990, 914,        // FY24 → 3,744
+  1010, 1080, 1130, 1029,    // FY25 → 4,249
+  1100, 1180, 1230, 1121,    // FY26e → 4,631
+  1200, 1290, 1340, 1218     // FY27e → 5,048
+];
+const qMob = [
+  720, 750, 690, 630,        // FY24 → 2,790
+  640, 660, 615, 590,        // FY25 → 2,505
+  790, 870, 850, 817,        // FY26e → 3,327
+  860, 920, 905, 875         // FY27e → 3,560
+];
+const qEMob = [
+  165, 175, 165, 157,        // FY24 → 662
+  155, 160, 150, 139,        // FY25 → 604
+  0,0,0,0,0,0,0,0
+];
+const FY26_START_E = 8;
+const dim = (rgba) => rgba;
+const dimColor = (base, idx) => idx >= FY26_START_E + 1 ? base.replace(/rgba?\([^)]+\)/, m => {
+  const nums = m.match(/[\d.]+/g).map(Number);
+  if (nums.length === 3) return `rgba(${nums[0]},${nums[1]},${nums[2]},0.55)`;
+  return `rgba(${nums[0]},${nums[1]},${nums[2]},0.55)`;
+}) : base;
+function fadeFY26(hex, idx) {
+  // hex like "#d97757" → rgba w/ 0.55 alpha when idx is forecast
+  const h = hex.replace('#','');
+  const r = parseInt(h.slice(0,2),16), g = parseInt(h.slice(2,4),16), b = parseInt(h.slice(4,6),16);
+  return idx >= FY26_START_E + 1 ? `rgba(${r},${g},${b},0.55)` : hex;
+}
+new Chart(document.getElementById('revStackQuarterly'), {
+  type: 'bar',
+  data: {
+    labels: qLabelsRev,
+    datasets: [
+      { label: 'Electrical Americas', data: qEA,   backgroundColor: ctx => fadeFY26(COLORS.terra, ctx.dataIndex), borderRadius: 2, stack: 'rev' },
+      { label: 'Electrical Global',   data: qEG,   backgroundColor: ctx => fadeFY26(COLORS.s2,    ctx.dataIndex), borderRadius: 2, stack: 'rev' },
+      { label: 'Aerospace',           data: qAero, backgroundColor: ctx => fadeFY26(COLORS.s3,    ctx.dataIndex), borderRadius: 2, stack: 'rev' },
+      { label: 'Mobility',            data: qMob,  backgroundColor: ctx => fadeFY26(COLORS.azure, ctx.dataIndex), borderRadius: 2, stack: 'rev' },
+      { label: 'eMobility',           data: qEMob, backgroundColor: ctx => fadeFY26(COLORS.parchment, ctx.dataIndex), borderRadius: 2, stack: 'rev' }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'bottom', align: 'start' },
+      tooltip: {
+        callbacks: {
+          label: c => `${c.dataset.label}: $${(c.parsed.y/1000).toFixed(2)}B`,
+          footer: items => `Total: $${(items.reduce((s,i)=>s+i.parsed.y,0)/1000).toFixed(2)}B`
+        }
+      }
+    },
+    scales: {
+      x: { grid: { display: false }, stacked: true, ticks: { autoSkip: false, maxRotation: 0, font: { size: 10 } } },
+      y: { stacked: true, grid: gridStyle, ticks: { callback: v => '$' + (v/1000).toFixed(1) + 'B' } }
+    }
+  }
+});
+
+// ============================================================
+// 1c. Electrical Americas capacity expansion ramp
+// ============================================================
+// $1.5B capex / 24 sites front-loaded Q1'26. Incremental annualized revenue capability
+// (run-rate $M) coming online each quarter; cumulative line tracks total unlocked.
+const capLabels = [
+  "Q4'25","Q1'26","Q2'26","Q3'26","Q4'26",
+  "Q1'27","Q2'27","Q3'27","Q4'27"
+];
+const capIncremental = [80, 320, 280, 210, 200, 160, 140, 110, 100]; // sums to 1,600
+let cum = 0;
+const capCumulative = capIncremental.map(v => cum += v);
+new Chart(document.getElementById('capacityRamp'), {
+  type: 'bar',
+  data: {
+    labels: capLabels,
+    datasets: [
+      {
+        type: 'bar',
+        label: 'Incremental capacity (annualized $M)',
+        data: capIncremental,
+        backgroundColor: COLORS.terra,
+        borderRadius: 2,
+        order: 2,
+        yAxisID: 'y'
+      },
+      {
+        type: 'line',
+        label: 'Cumulative capacity online (annualized $M)',
+        data: capCumulative,
+        borderColor: '#1a1a1a',
+        backgroundColor: 'rgba(26,26,26,0.04)',
+        borderWidth: 2,
+        pointRadius: 4,
+        pointBackgroundColor: '#1a1a1a',
+        tension: 0.25,
+        fill: false,
+        order: 1,
+        yAxisID: 'y2'
+      }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'bottom', align: 'start' },
+      tooltip: { callbacks: { label: c => `${c.dataset.label}: $${c.parsed.y}M` } }
+    },
+    scales: {
+      x: { grid: { display: false } },
+      y:  { grid: gridStyle, ticks: { callback: v => '$' + v + 'M' }, title: { display: true, text: 'Quarterly increment' } },
+      y2: { position: 'right', grid: { display: false }, ticks: { callback: v => '$' + (v/1000).toFixed(1) + 'B' }, title: { display: true, text: 'Cumulative ($B run-rate)' }, max: 1800 }
+    }
+  }
+});
+
+// ============================================================
+// 2. FY25 segment mix donut
+// ============================================================
+new Chart(document.getElementById('mixDonut'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Electrical Americas','Electrical Global','Aerospace','Mobility','eMobility'],
+    datasets: [{
+      data: [13276, 6815, 4249, 2505, 604],
+      backgroundColor: [COLORS.terra, COLORS.s2, COLORS.s3, COLORS.azure, COLORS.parchment],
+      borderColor: COLORS.surface,
+      borderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false, cutout: '65%',
+    plugins: {
+      legend: { position: 'right', align: 'center', labels: { padding: 14 } },
+      tooltip: {
+        callbacks: {
+          label: c => {
+            const total = c.dataset.data.reduce((s,v)=>s+v,0);
+            const pct = (c.parsed/total*100).toFixed(1);
+            return `${c.label}: $${(c.parsed/1000).toFixed(2)}B (${pct}%)`;
+          }
+        }
+      }
+    }
+  }
+});
+
+// ============================================================
+// 3. FY25 segment margin bars
+// ============================================================
+new Chart(document.getElementById('marginBars'), {
+  type: 'bar',
+  data: {
+    labels: ['Electrical Americas','Aerospace','Electrical Global','Mobility','eMobility'],
+    datasets: [{
+      label: 'FY25 Segment Op. Margin',
+      data: [29.9, 23.8, 19.4, 16.7, -2.3],
+      backgroundColor: ctx => {
+        const v = ctx.raw;
+        if (v >= 25) return COLORS.terra;
+        if (v >= 18) return COLORS.s2;
+        if (v >= 0) return COLORS.s3;
+        return COLORS.azure;
+      },
+      borderRadius: 2,
+      barThickness: 22
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: c => c.parsed.x.toFixed(1) + '%' } }
+    },
+    scales: {
+      x: { grid: gridStyle, ticks: { callback: v => v + '%' } },
+      y: { grid: { display: false } }
+    }
+  }
+});
+
+// ============================================================
+// 4. Data center orders growth — Q3 vs Q4
+// ============================================================
+new Chart(document.getElementById('dcOrders'), {
+  type: 'bar',
+  data: {
+    labels: ['Q3 2025','Q4 2025'],
+    datasets: [
+      { label: 'Orders growth (YoY)', data: [70, 200], backgroundColor: COLORS.terra, borderRadius: 2, barThickness: 56 },
+      { label: 'Sales growth (YoY)',  data: [40, 40],  backgroundColor: COLORS.s2,    borderRadius: 2, barThickness: 56 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'bottom', align: 'start' },
+      tooltip: { callbacks: { label: c => c.dataset.label + ': +' + c.parsed.y + '%' } }
+    },
+    scales: {
+      x: { grid: { display: false } },
+      y: { grid: gridStyle, ticks: { callback: v => '+' + v + '%' } }
+    }
+  }
+});
+
+// ============================================================
+// 5. AI vs Cloud mix donut
+// ============================================================
+new Chart(document.getElementById('aiMix'), {
+  type: 'bar',
+  data: {
+    labels: ['FY25 Orders','FY25 Revenue'],
+    datasets: [
+      { label: 'AI',    data: [50, 30], backgroundColor: COLORS.terra, stack: 's', borderRadius: 0 },
+      { label: 'Cloud', data: [50, 70], backgroundColor: COLORS.s2, stack: 's', borderRadius: 0 }
+    ]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'bottom', align: 'start' },
+      tooltip: { callbacks: { label: c => c.dataset.label + ': ' + c.parsed.x + '%' } }
+    },
+    scales: {
+      x: { stacked: true, grid: gridStyle, max: 100, ticks: { callback: v => v + '%' } },
+      y: { stacked: true, grid: { display: false } }
+    }
+  }
+});
+
+// ============================================================
+// 6. Content per MW — horizontal range chart
+// ============================================================
+new Chart(document.getElementById('contentPerMW'), {
+  type: 'bar',
+  data: {
+    labels: ['Investor Day TAM range','Current portfolio','Post-Boyd close'],
+    datasets: [{
+      label: '$M / MW',
+      data: [
+        [1.2, 2.9],
+        [0, 2.9],
+        [0, 3.4]
+      ],
+      backgroundColor: [COLORS.parchment, COLORS.s2, COLORS.terra],
+      borderRadius: 2,
+      barThickness: 32
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: c => {
+            const v = c.raw;
+            if (Array.isArray(v)) return `$${v[0]}M – $${v[1]}M / MW`;
+            return `$${v}M / MW`;
+          }
+        }
+      }
+    },
+    scales: {
+      x: { grid: gridStyle, ticks: { callback: v => '$' + v + 'M' }, max: 4 },
+      y: { grid: { display: false } }
+    }
+  }
+});
+
+// ============================================================
+// 7. EA Backlog bars
+// ============================================================
+const blQuarters = ['Q4 2023','Q1 2024','Q2 2024','Q3 2024','Q4 2024','Q1 2025','Q2 2025','Q3 2025','Q4 2025'];
+const blValues   = [9500, 11300, 9698, 9970, 10141, 10050, 11377, 12009, 13246];
+new Chart(document.getElementById('backlogBars'), {
+  type: 'bar',
+  data: {
+    labels: blQuarters,
+    datasets: [{
+      label: 'Electrical Americas Backlog',
+      data: blValues,
+      backgroundColor: ctx => ctx.dataIndex === blValues.length - 1 ? COLORS.terra : COLORS.s3,
+      borderRadius: 2
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: c => '$' + (c.parsed.y/1000).toFixed(2) + 'B' } }
+    },
+    scales: {
+      x: { grid: { display: false } },
+      y: { grid: gridStyle, ticks: { callback: v => '$' + (v/1000).toFixed(1) + 'B' } }
+    }
+  }
+});
+
+// ============================================================
+// 8. EPS line chart
+// ============================================================
+new Chart(document.getElementById('epsLine'), {
+  type: 'line',
+  data: {
+    labels: years,
+    datasets: [{
+      label: 'Adjusted Diluted EPS',
+      data: [9.12, 10.80, 12.07, 13.50, 15.30],
+      borderColor: COLORS.terra,
+      backgroundColor: COLORS.terraFaint,
+      borderWidth: 2.25,
+      pointRadius: 5,
+      pointHoverRadius: 7,
+      pointBackgroundColor: ctx => ctx.dataIndex < 3 ? COLORS.terra : COLORS.surface,
+      pointBorderColor: COLORS.terra,
+      pointBorderWidth: 2,
+      fill: true
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: c => '$' + c.parsed.y.toFixed(2) } }
+    },
+    scales: {
+      x: { grid: { display: false } },
+      y: { grid: gridStyle, ticks: { callback: v => '$' + v } }
+    }
+  }
+});
+
+// ============================================================
+// 9. Segment margin trajectory FY23–FY27e (margin growth)
+// ============================================================
+const marginYears = ['FY23','FY24','FY25','FY26e','FY27e'];
+new Chart(document.getElementById('marginGrowth'), {
+  type: 'line',
+  data: {
+    labels: marginYears,
+    datasets: [
+      {
+        label: 'Total Segment Margin',
+        data: [22.0, 23.9, 24.5, 24.9, 25.6],
+        borderColor: COLORS.terra,
+        backgroundColor: COLORS.terraFaint,
+        borderWidth: 2.5,
+        pointRadius: 5,
+        pointHoverRadius: 7,
+        pointBackgroundColor: ctx => ctx.dataIndex < 3 ? COLORS.terra : COLORS.surface,
+        pointBorderColor: COLORS.terra,
+        pointBorderWidth: 2,
+        fill: true,
+        order: 0
+      },
+      {
+        label: 'Electrical Americas',
+        data: [26.5, 30.2, 29.9, 30.0, 30.6],
+        borderColor: COLORS.ink,
+        backgroundColor: 'transparent',
+        borderWidth: 1.5,
+        pointRadius: 3,
+        pointHoverRadius: 5,
+        pointBackgroundColor: COLORS.ink,
+        order: 1
+      },
+      {
+        label: 'Aerospace',
+        data: [22.9, 22.9, 23.8, 24.1, 24.7],
+        borderColor: COLORS.ink2,
+        backgroundColor: 'transparent',
+        borderWidth: 1.5,
+        pointRadius: 3,
+        pointHoverRadius: 5,
+        pointBackgroundColor: COLORS.ink2,
+        order: 2
+      },
+      {
+        label: 'Electrical Global',
+        data: [19.3, 18.4, 19.4, 19.7, 20.3],
+        borderColor: COLORS.ink3,
+        backgroundColor: 'transparent',
+        borderWidth: 1.5,
+        borderDash: [4, 4],
+        pointRadius: 3,
+        pointHoverRadius: 5,
+        pointBackgroundColor: COLORS.ink3,
+        order: 3
+      },
+      {
+        label: 'Mobility',
+        data: [16.3, 18.0, 16.7, 14.8, 15.4],
+        borderColor: COLORS.ink4,
+        backgroundColor: 'transparent',
+        borderWidth: 1.5,
+        borderDash: [2, 4],
+        pointRadius: 3,
+        pointHoverRadius: 5,
+        pointBackgroundColor: COLORS.ink4,
+        order: 4
+      }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: { position: 'bottom', align: 'start', labels: { padding: 14 } },
+      tooltip: {
+        callbacks: { label: c => c.dataset.label + ': ' + c.parsed.y.toFixed(1) + '%' }
+      }
+    },
+    scales: {
+      x: { grid: { display: false } },
+      y: {
+        grid: gridStyle,
+        ticks: { callback: v => v + '%' },
+        suggestedMin: 12,
+        suggestedMax: 32
+      }
+    }
+  }
+});
+
+// ============================================================
+// 10. Quarterly margin trajectory — Q1'24 → Q4'27e
+// ============================================================
+const qLabels = [
+  "Q1'24","Q2'24","Q3'24","Q4'24",
+  "Q1'25","Q2'25","Q3'25","Q4'25",
+  "Q1'26e","Q2'26e","Q3'26e","Q4'26e",
+  "Q1'27e","Q2'27e","Q3'27e","Q4'27e"
+];
+const FORECAST_START = 8; // index where forecast begins (Q1'26e)
+
+// Build a single dataset with two visual segments via segment.borderDash
+function quarterlyDataset(label, values, color, weight) {
+  return {
+    label,
+    data: values,
+    borderColor: color,
+    backgroundColor: color === COLORS.terra ? COLORS.terraFaint : 'transparent',
+    borderWidth: weight === 'heavy' ? 2.5 : 1.5,
+    pointRadius: ctx => ctx.dataIndex < FORECAST_START ? (weight === 'heavy' ? 4 : 2.5) : 0,
+    pointHoverRadius: weight === 'heavy' ? 6 : 4,
+    pointBackgroundColor: color,
+    pointBorderColor: color,
+    pointBorderWidth: 1,
+    fill: weight === 'heavy',
+    order: weight === 'heavy' ? 0 : 5,
+    segment: {
+      borderDash: ctx => ctx.p1DataIndex >= FORECAST_START ? [4, 4] : undefined
+    }
+  };
+}
+
+new Chart(document.getElementById('marginQuarterly'), {
+  type: 'line',
+  data: {
+    labels: qLabels,
+    datasets: [
+      quarterlyDataset('Total Segment Margin',
+        [23.1, 23.7, 24.3, 24.7, 23.9, 23.9, 25.0, 24.9, 23.0, 24.6, 25.9, 25.8, 24.9, 25.3, 26.2, 26.0],
+        COLORS.terra, 'heavy'),
+      quarterlyDataset('Electrical Americas',
+        [29.2, 29.9, 30.1, 31.6, 30.0, 29.5, 30.3, 29.8, 26.7, 29.5, 31.2, 31.9, 29.7, 30.0, 30.9, 31.6],
+        COLORS.ink, 'thin'),
+      quarterlyDataset('Aerospace',
+        [23.0, 21.6, 24.3, 22.8, 23.1, 22.2, 25.9, 24.1, 23.9, 22.7, 25.8, 24.0, 24.5, 23.2, 26.4, 24.5],
+        COLORS.ink2, 'thin'),
+      quarterlyDataset('Electrical Global',
+        [18.3, 19.0, 18.7, 17.7, 18.6, 20.1, 19.1, 19.7, 19.3, 20.3, 19.7, 19.5, 19.9, 20.9, 20.3, 20.1],
+        COLORS.ink3, 'thin'),
+      quarterlyDataset('Mobility',
+        [16.0, 18.0, 19.4, 18.9, 15.6, 17.0, 17.8, 16.4, 13.5, 14.9, 15.8, 14.8, 14.0, 15.6, 16.5, 15.3],
+        COLORS.ink4, 'thin')
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: { position: 'bottom', align: 'start', labels: { padding: 14 } },
+      tooltip: {
+        callbacks: { label: c => c.dataset.label + ': ' + c.parsed.y.toFixed(1) + '%' }
+      }
+    },
+    scales: {
+      x: {
+        grid: { display: false },
+        ticks: {
+          color: ctx => ctx.tick && ctx.tick.label && ctx.tick.label.indexOf('e') > -1 ? COLORS.ink3 : COLORS.ink2
+        }
+      },
+      y: {
+        grid: gridStyle,
+        ticks: { callback: v => v + '%' },
+        suggestedMin: 12,
+        suggestedMax: 34
+      }
+    }
+  }
+});
+
+// ============================================================
+// 11. Price + multiple bands
+// ============================================================
+fetch('etn_prices.json').then(r => r.json()).then(prices => {
+  const labels = prices.map(p => p[0]);
+  const data = prices.map(p => p[1]);
+
+  // FY+1 EPS path matching the workbook's PE Bands (constant per quarter)
+  // Q1 2023 - Q4 2023: 10.80; Q1 2024 - Q4 2024: 12.07; Q1 2025 - Q4 2025: 13.50; 2026: 15.30
+  function epsForDate(d) {
+    if (d >= '2026-01-01') return 15.30;
+    if (d >= '2025-01-01') return 13.50;
+    if (d >= '2024-01-01') return 12.07;
+    return 10.80;
+  }
+  const bands = [16, 21, 26, 31, 36];
+  const bandColors = ['#a8a298','#9c9a92','#d97757','#9c9a92','#a8a298'];
+  const bandData = bands.map(m => labels.map((d, i) => m * epsForDate(d)));
+
+  new Chart(document.getElementById('priceBands'), {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        ...bands.map((m, i) => ({
+          label: m + 'x',
+          data: bandData[i],
+          borderColor: bandColors[i],
+          borderWidth: m === 26 ? 1.5 : 1.1,
+          borderDash: m === 26 ? [] : [3, 4],
+          pointRadius: 0,
+          fill: false,
+          tension: 0
+        })),
+        {
+          label: 'ETN close',
+          data: data,
+          borderColor: COLORS.ink,
+          backgroundColor: 'rgba(20,20,19,0.04)',
+          borderWidth: 1.75,
+          pointRadius: 0,
+          fill: true,
+          order: -1
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { position: 'bottom', align: 'start', labels: { padding: 10 } },
+        tooltip: { callbacks: { label: c => c.dataset.label + ': $' + c.parsed.y.toFixed(2) } }
+      },
+      scales: {
+        x: {
+          grid: { display: false },
+          ticks: {
+            maxRotation: 0,
+            autoSkip: true,
+            maxTicksLimit: 8,
+            callback: function(val) {
+              const lbl = this.getLabelForValue(val);
+              return lbl ? lbl.slice(0, 7) : '';
+            }
+          }
+        },
+        y: {
+          grid: gridStyle,
+          ticks: { callback: v => '$' + v }
+        }
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>
