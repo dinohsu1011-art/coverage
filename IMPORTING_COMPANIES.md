@@ -8,6 +8,9 @@ automatically.
 **After every edit, run `node validate.js` — it must print 9/9 (or N/N) PASS.**
 Serve locally with `python3 serve_nocache.py` (port 8765, no-cache headers so edits always load).
 
+**Publish:** the project is a public GitHub Pages site — https://dinohsu1011-art.github.io/coverage/
+(repo `dinohsu1011-art/coverage`). After validating, `git add -A && git commit && git push` to update the live site (builds in ~1 min).
+
 ## Canonical source layout (per company)
 
 Every company folder under `/Users/dinohsu/Desktop/Work/Coverage/<TICKER>/` follows the
