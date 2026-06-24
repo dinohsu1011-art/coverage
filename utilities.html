@@ -502,11 +502,122 @@
       border-radius: 999px;
       padding: 2px 9px; margin-bottom: 10px;
     }
+    /* neutral (non-accent) tag variant — used for the FERC-model card */
+    .flow-node .flow-tag.flow-tag-mute {
+      color: var(--ink-3);
+      border-color: var(--rule);
+      background: transparent;
+    }
+
+    /* curtailment-enabled headroom stat cards (Access section) */
+    .hr-cap {
+      font-family: var(--sans);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--ink-4); margin-bottom: 12px;
+    }
+    .hr-num {
+      font-family: var(--serif);
+      font-variant-numeric: tabular-nums;
+      font-size: 46px; line-height: 1; font-weight: 500;
+      color: var(--ink);
+    }
+    .hr-num .hr-unit { font-size: 18px; color: var(--ink-3); margin-left: 3px; }
+    .flow-node.flow-outcome .hr-cap { color: rgba(255,255,255,0.78); }
+    .flow-node.flow-outcome .hr-num { color: #fff; }
+    .flow-node.flow-outcome .hr-num .hr-unit { color: rgba(255,255,255,0.82); }
   </style>
+
+  <!-- ===================== ACCESS / INTERCONNECTION MODELS ===================== -->
 
   <section>
     <div class="section-header">
-      <div class="section-num">10 / Synthesis</div>
+      <div class="section-num">10 / Access</div>
+      <h2 class="section-title">Two front doors to the <em>grid</em></h2>
+    </div>
+    <div class="section-body">
+      <div class="col-meta">The models</div>
+      <div class="col-body">
+        <p>Everything above assumes one way onto the grid: file an interconnection request, wait for the study, build the upgrades, energize. That process is built around <strong>firm service</strong> — it sizes the grid for a load drawing 100% of its maximum in every hour, including the system peak — so a single large data-center request tends to trigger the full slate of network upgrades whose lead times now run into years.</p>
+        <p>There is a second door. Instead of asking the grid to guarantee every megawatt in every hour, the load agrees to <strong>back off during the handful of stressed hours each year</strong>. ERCOT calls its version <em>connect-and-manage</em>; FERC codified the same idea as Energy Resource Interconnection Service. The trade is simple — give up firm capacity rights, accept some curtailment, and skip to the front of the queue.</p>
+      </div>
+    </div>
+
+    <div class="figure">
+      <div class="flow">
+
+        <div class="flow-row cols-2">
+          <div class="flow-node">
+            <div class="flow-tag flow-tag-mute">FERC · firm service</div>
+            <div class="flow-head">Study, upgrade, <em>then</em> connect</div>
+            <div class="flow-sub">FERC's pro-forma process assumes a new load is firm — drawing its full maximum at all times, including system-wide peaks. The Duke study notes this is "far more likely to trigger the need for significant upgrades, such as new transformers, transmission line reconductoring, circuit breakers, or other substation equipment."</div>
+            <div class="flow-stat">Transformer lead times have ballooned to <b>2–5 years</b> (costs +80%); high-voltage circuit breakers hit <b>151 weeks</b> in late 2023. Firm service waits on every bit of it.</div>
+          </div>
+          <div class="flow-node">
+            <div class="flow-tag">ERCOT · connect-and-manage</div>
+            <div class="flow-head">Connect first, curtail the <em>few</em> stressed hours</div>
+            <div class="flow-sub">ERCOT's 2022 interim large-load process lets a data center qualify as a <em>controllable load resource</em> (CLR) — "studied as flexible and potentially interconnect more MWs." FERC's Energy Resource Interconnection Service (ERIS, Order 2003) is the parallel: forgo firm capacity rights and accept curtailment risk in exchange for "expedited lower-cost grid access."</div>
+            <div class="flow-stat">ERCOT: "the optimal solution for grid reliability is for more loads to participate in economic dispatch as <b>CLRs</b>" — and its grid could absorb on the order of <b>10 GW</b> of new flexible load, among the top five BAs nationally.</div>
+          </div>
+        </div>
+
+        <div class="flow-link">
+          <div class="flow-label">So how much new load can the <em>existing</em> grid absorb if it's willing to flex? A Duke study put numbers on it.</div>
+          <div class="flow-line"></div><div class="flow-arrow"></div>
+        </div>
+
+        <div class="flow-node">
+          <div class="flow-kicker">Curtailment-enabled headroom</div>
+          <div class="flow-head">The grid is built for a peak it rarely hits — leaving room underneath.</div>
+          <div class="flow-sub">Across the 22 largest US balancing authorities (≈95% of national peak demand), new load that agrees to be curtailed for a sliver of the year fits inside the system's existing headroom — with <strong>no new generation or transmission</strong>. The more curtailment the load tolerates, the more of it the grid can swallow.</div>
+        </div>
+
+        <div class="flow-link">
+          <div class="flow-line"></div><div class="flow-arrow"></div>
+        </div>
+
+        <div class="flow-row cols-3">
+          <div class="flow-node flow-outcome">
+            <div class="hr-cap">0.25% curtailment ≈ 22 hrs / yr</div>
+            <div class="hr-num">76<span class="hr-unit">GW</span></div>
+            <div class="flow-sub">≈10% of total US peak demand — added with no new capacity. Average interruption is just <b>1.7 hours</b>.</div>
+          </div>
+          <div class="flow-node">
+            <div class="hr-cap">0.5% ≈ 44 hrs / yr</div>
+            <div class="hr-num">98<span class="hr-unit">GW</span></div>
+            <div class="flow-sub">Doubling the curtailment tolerance adds another <b>22 GW</b> of integrable load.</div>
+          </div>
+          <div class="flow-node">
+            <div class="hr-cap">1.0% ≈ 88 hrs / yr</div>
+            <div class="hr-num">126<span class="hr-unit">GW</span></div>
+            <div class="flow-sub">Even at 1%, the load is fully served <b>99% of the year</b>; average interruption still under <b>2.5 hours</b>.</div>
+          </div>
+        </div>
+
+        <div class="flow-link">
+          <div class="flow-label">Which is exactly the gap a battery fills.</div>
+          <div class="flow-line"></div><div class="flow-arrow"></div>
+        </div>
+
+        <div class="flow-node">
+          <div class="flow-tag">The unlock</div>
+          <div class="flow-head">Batteries make the curtailment window <em>invisible</em>.</div>
+          <div class="flow-sub">The grid only needs the load to ease off for ~22 hours a year, in stretches averaging under two — and nearly <b>90% of those hours still want at least half the load</b>. An on-site battery rides through exactly that shortfall: the data center stays <em>firm to its servers</em> while presenting as <em>flexible to the grid</em>. That is why colocating storage behind a flexible interconnection — rather than waiting years for firm capacity — is the fast path on.</div>
+          <div class="flow-stat">FERC's late-2024 colocation conference made the point directly: the Clean Energy Buyers Association called the flexibility of co-located demand <b>"a key asset that can enable rapid, reliable interconnection."</b></div>
+        </div>
+
+      </div>
+      <div class="caption">Curtailment-enabled headroom across the 22 largest US balancing authorities (≈95% of national peak). Hour figures are the arithmetic equivalent of each curtailment share (0.25% × 8,760 h ≈ 22 h). Source: Norris, Profeta, Patino-Echeverri &amp; Cowie-Haskell, <em>Rethinking Load Growth</em>, Duke Nicholas Institute for Energy, Environment &amp; Sustainability (NI R 25-01, 2025); interconnection-model and lead-time figures cited therein.</div>
+    </div>
+
+    <blockquote class="pull">Flexible to the grid, firm to the servers — a battery turns a 22-hour-a-year curtailment promise into uninterrupted compute, and a multi-year interconnection wait into a months-long one.<cite>Access · ERCOT connect-and-manage / FERC ERIS · Duke Nicholas Institute, Rethinking Load Growth (2025)</cite></blockquote>
+  </section>
+
+  <!-- ===================== SYNTHESIS ===================== -->
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">11 / Synthesis</div>
       <h2 class="section-title">Why the queue ends in <em>batteries</em></h2>
     </div>
     <div class="section-body">
@@ -600,7 +711,7 @@
 
   <section>
     <div class="section-header">
-      <div class="section-num">11 / Signal</div>
+      <div class="section-num">12 / Signal</div>
       <h2 class="section-title">What to <em>watch</em> in 2026</h2>
     </div>
     <div class="watchlist">
