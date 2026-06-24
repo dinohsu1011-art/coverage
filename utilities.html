@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Utilities — U.S. Grid Interconnection 2026</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="shell">
+
+  <div class="topbar">
+    <div class="brand">Coverage / Power &amp; Utilities</div>
+    <nav>
+      <a href="index.html">Index</a>
+      <a href="utilities.html" class="current">Grid &amp; Interconnection</a>
+    </nav>
+  </div>
+
+  <div class="frozen-banner">
+    <strong>Source data</strong> — Enverus, <em>2026 ISO Dynamics &amp; Market Trends</em>. Capacity figures are interconnection-queue volumes (GW) targeting 2026 first power, not committed builds. Region totals shown here are the <em>sum of charted fuel categories</em>, not official ISO totals.
+  </div>
+
+  <header>
+    <div class="eyebrow"><span class="dot"></span><span>U.S. Power Grid · 2026 Interconnection Outlook</span></div>
+    <h1 class="display">Everything wants to plug&nbsp;in. <em>Almost nothing</em> can.</h1>
+    <p class="subhead">Roughly <strong>600 GW</strong> of generation and storage is targeting 2026 first power across the seven ISOs and six large non-ISO utilities — more than half the installed U.S. fleet. The queue is the bottleneck: a national average wait of <strong>4.9 years</strong>, capacity prices up <strong>10×</strong> where supply is tightest, and a fuel mix tilting hard toward batteries and gas as renewables tax credits sunset.</p>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="label">National queue → 2026</div>
+        <div class="value">~600<span class="unit">GW</span></div>
+        <div class="delta">~half the U.S. fleet</div>
+      </div>
+      <div class="stat">
+        <div class="label">Under construction</div>
+        <div class="value">~95<span class="unit">GW</span></div>
+        <div class="delta">highest-probability tier</div>
+      </div>
+      <div class="stat">
+        <div class="label">Avg. queue time</div>
+        <div class="value">4.9<span class="unit">yrs</span></div>
+        <div class="delta">ERCOT 2.9 → CAISO 8.5</div>
+      </div>
+      <div class="stat">
+        <div class="label">PJM capacity price</div>
+        <div class="value">$329<span class="unit">/MW-day</span></div>
+        <div class="delta">≈10× the 2024 clear</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== NATIONAL OVERVIEW ===================== -->
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">01 / National</div>
+      <h2 class="section-title">The interconnection <em>funnel</em></h2>
+    </div>
+    <div class="section-body">
+      <div class="col-meta">The setup</div>
+      <div class="col-body">
+        <p>The headline number — ~600 GW targeting 2026 — overstates what will actually energize. Projects sit in tiers of decreasing probability: a large <strong>early queue</strong> that has not cleared studies, a <strong>study stage</strong> working through impact and facilities analysis, and a much smaller <strong>under-construction</strong> band that is the only near-certain 2026 supply. Read the funnel, not the headline.</p>
+      </div>
+    </div>
+    <div class="figure">
+      <div class="chart-wrap">
+        <div class="chart-title">From queue to steel in the ground</div>
+        <div class="chart-sub">GW by maturity tier within the ~600 GW targeting 2026 first power</div>
+        <div class="chart-canvas"><canvas id="funnel"></canvas></div>
+      </div>
+      <div class="caption">Under construction (~95 GW) is the highest-probability tier. The early queue and study-stage volumes carry attrition rates that historically exceed 70%.</div>
+    </div>
+    <blockquote class="pull">Half of everything ever connected to these grids is now trying to connect again in a single year — and the studies, not the demand, set the pace.<cite>Enverus, 2026 ISO Dynamics</cite></blockquote>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">02 / National</div>
+      <h2 class="section-title">Time to <em>power</em>, by region</h2>
+    </div>
+    <div class="section-body">
+      <div class="col-meta">Why it matters</div>
+      <div class="col-body">
+        <p>The single most decisive variable is how long a project waits. <strong>ERCOT clears in 2.9 years</strong> on a connect-and-manage model; the RTOs that run full cluster studies — <strong>CAISO at 8.5, PJM at 7.2</strong> — take roughly three times as long. That gap is why ERCOT keeps adding capacity while load-growth regions struggle to keep up.</p>
+      </div>
+    </div>
+    <div class="figure">
+      <div class="chart-wrap">
+        <div class="chart-title">Average queue time to interconnection</div>
+        <div class="chart-sub">Years, by ISO · only ERCOT clears the 4.9-yr national average (accent)</div>
+        <div class="chart-canvas"><canvas id="ttp"></canvas></div>
+      </div>
+      <div class="caption">ERCOT's connect-and-manage approach is the structural outlier. Wind and offshore wait far longer than the regional average — see fuel detail below.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">03 / National</div>
+      <h2 class="section-title">Not all fuels wait the <em>same</em></h2>
+    </div>
+    <div class="section-body">
+      <div class="col-meta">Fuel detail</div>
+      <div class="col-body">
+        <p>Within a region the spread by fuel is brutal. Gas and battery clear fastest where the market favors dispatchable capacity; <strong>wind is punished everywhere</strong> — 13.7 years in PJM, 11.7 in SPP — while it sails through ERCOT and MISO. The queue is, in effect, a policy instrument: it rewards what the grid says it needs.</p>
+      </div>
+    </div>
+    <div class="figure">
+      <div class="chart-wrap">
+        <div class="chart-title">Queue time by fuel and region</div>
+        <div class="chart-sub">Years · gaps = not separately reported by Enverus</div>
+        <div class="chart-canvas tall"><canvas id="ttpFuel"></canvas></div>
+      </div>
+      <div class="caption">Battery clears in 2.1 yrs in SPP but 8.8 in CAISO. Wind's 13.7-yr PJM wait effectively closes that market to new onshore wind.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">04 / National</div>
+      <h2 class="section-title">What's coming <em>online</em></h2>
+    </div>
+    <div class="section-body">
+      <div class="col-meta">The buildout</div>
+      <div class="col-body">
+        <p>Stack the 2026 queue by fuel and the story is <strong>storage and gas</strong>. PJM alone carries ~67 GW of queued battery and ~39 GW of gas; ERCOT and AZPS are battery-dominated; the Southeast (Duke, TVA) is the gas heartland. The under-construction view — the near-certain slice — is far smaller and tells you who actually delivers in 2026.</p>
+      </div>
+    </div>
+    <div class="figure-row">
+      <div class="figure">
+        <div class="chart-wrap">
+          <div class="chart-title">Queued 2026 capacity by region</div>
+          <div class="chart-sub">GW · stacked by fuel · sum of charted categories</div>
+          <div class="chart-canvas tall"><canvas id="queuedByRegion"></canvas></div>
+        </div>
+        <div class="caption">The full queue — high volume, lower probability.</div>
+      </div>
+      <div class="figure">
+        <div class="chart-wrap">
+          <div class="chart-title">Under construction by region</div>
+          <div class="chart-sub">GW · stacked by fuel · highest-probability 2026 supply</div>
+          <div class="chart-canvas tall"><canvas id="ucByRegion"></canvas></div>
+        </div>
+        <div class="caption">The near-certain slice — note ERCOT &amp; AZPS lead.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">05 / National</div>
+      <h2 class="section-title">The pace is <em>accelerating</em></h2>
+    </div>
+    <div class="section-body">
+      <div class="col-meta">Momentum</div>
+      <div class="col-body">
+        <p>Set 2025's actual additions against the 2026 queue and the surge is unmistakable. PJM moved ~4 GW in 2025 against a <strong>137 GW</strong> queue; ERCOT roughly tripled its run-rate. Even with heavy attrition, the inflection is real — and it is happening fastest in the regions facing AI-driven load growth.</p>
+      </div>
+    </div>
+    <div class="figure">
+      <div class="chart-wrap">
+        <div class="chart-title">2025 actual vs. 2026 queued — the seven ISOs</div>
+        <div class="chart-sub">GW · sum of charted fuel categories</div>
+        <div class="chart-canvas tall"><canvas id="momentum"></canvas></div>
+      </div>
+      <div class="caption">Queued volume will not all energize, but the year-over-year step-up in intent is an order of magnitude.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">06 / National</div>
+      <h2 class="section-title">The price <em>signal</em></h2>
+    </div>
+    <div class="section-body">
+      <div class="col-meta">Scarcity</div>
+      <div class="col-body">
+        <p>Where the queue can't keep up with load, capacity markets scream. <strong>PJM's 2026/27 auction cleared at $329.17/MW-day — roughly 10× the 2024 result.</strong> MISO touched $666.50 in summer scarcity zones. These are the clearest market signals that interconnection delay has become a reliability problem, not just a developer headache.</p>
+      </div>
+    </div>
+    <div class="figure">
+      <div class="chart-wrap">
+        <div class="chart-title">Capacity price shock</div>
+        <div class="chart-sub">$/MW-day · *MISO is zonal summer scarcity pricing</div>
+        <div class="chart-canvas short"><canvas id="prices"></canvas></div>
+      </div>
+      <div class="caption">PJM 2024/25 base residual auction vs. 2026/27 clear; MISO summer scarcity in specific zones.</div>
+    </div>
+  </section>
+
+  <!-- ===================== REGULATION & POLICY ===================== -->
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">07 / Policy</div>
+      <h2 class="section-title">The <em>rules</em> are moving too</h2>
+    </div>
+    <div class="section-body">
+      <div class="col-meta">Federal</div>
+      <div class="col-body">
+        <p>Two 2025 laws reset the federal frame. <strong>OBBBA</strong> (July 2025) phases out the wind/solar PTC &amp; ITC on a hard clock — a physical-work / 5%-safe-harbor deadline of <strong>July 4, 2026</strong> and a placed-in-service cliff of <strong>Dec 31, 2027</strong> — while leaving the grid-scale <strong>battery ITC intact through 2036</strong>. The <strong>GRID Act</strong> (Sept 2025) mandates FERC interconnection-timeline reform and tilts toward dispatchable capacity. Together they explain the fuel mix: a rush to safe-harbor renewables now, and a structural tailwind for storage and gas after.</p>
+      </div>
+    </div>
+    <div class="figure">
+      <div class="chart-wrap">
+        <div class="chart-title">OBBBA renewables-credit clock</div>
+        <div class="chart-sub">Key deadlines reshaping the 2026–27 buildout</div>
+        <table class="dt">
+          <thead><tr><th>Milestone</th><th>Date</th><th>Effect</th></tr></thead>
+          <tbody>
+            <tr><td class="row-label">OBBBA enacted</td><td>Jul 2025</td><td>PTC/ITC phase-out begins</td></tr>
+            <tr><td class="row-label">Safe-harbor deadline</td><td class="amber">Jul 4 2026</td><td>Physical-work / 5% spend to lock credit</td></tr>
+            <tr><td class="row-label">Placed-in-service cliff</td><td class="red">Dec 31 2027</td><td>Wind/solar credit ends if not online</td></tr>
+            <tr><td class="row-label">Battery ITC</td><td class="teal">through 2036</td><td>Storage credit retained — structural tailwind</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="caption">The July-2026 safe-harbor date is the proximate driver of the renewables surge in the 2026 queue.</div>
+    </div>
+
+    <div class="section-body">
+      <div class="col-meta">Regional</div>
+      <div class="col-body">
+        <p>Beneath the federal layer, every ISO is re-engineering its own rules in 2026 — market-structure changes, queue caps, and a divergence in how storage earns capacity credit that materially changes battery economics region to region.</p>
+      </div>
+    </div>
+    <div class="figure">
+      <div class="chart-wrap">
+        <div class="chart-title">2026 market-structure changes &amp; storage accreditation</div>
+        <div class="chart-sub">By region · how the rulebook is shifting</div>
+        <table class="dt">
+          <thead><tr><th>Region</th><th>Structural change</th><th>Storage capacity credit</th></tr></thead>
+          <tbody>
+            <tr><td class="row-label">PJM</td><td>RRI fast-track; 2030 reserve margin ~20%</td><td>—</td></tr>
+            <tr><td class="row-label">MISO</td><td>Queue cap = 50% of non-coincident peak</td><td class="amber">DLOL 2026: solar winter 5% vs summer 50%</td></tr>
+            <tr><td class="row-label">CAISO</td><td>IPE 5.0; EDAM go-live</td><td class="amber">Slice-of-Day — evening solar credit → 0</td></tr>
+            <tr><td class="row-label">SPP</td><td>RTO West Apr 1 2026; CPP Q1 2026</td><td>4-hr minimum for full credit</td></tr>
+            <tr><td class="row-label">NYISO</td><td>Capacity accreditation reform</td><td>Solar credit ~9.4% nameplate</td></tr>
+            <tr><td class="row-label">ISO-NE</td><td class="teal">Seasonal capacity market proposal</td><td>—</td></tr>
+            <tr><td class="row-label">PacifiCorp</td><td>CAISO EDAM entry May 1 2026</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="caption">Accreditation divergence is the quiet story: the same battery earns very different capacity revenue in CAISO (Slice-of-Day) vs. SPP (4-hr rule).</div>
+    </div>
+  </section>
+
+  <!-- ===================== REGION BY REGION — ISOs ===================== -->
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">08 / Regions</div>
+      <h2 class="section-title">The seven <em>ISOs</em>, one by one</h2>
+    </div>
+    <div class="section-body">
+      <div class="col-meta">How to read</div>
+      <div class="col-body">
+        <p>Each chart pairs the <strong>queued</strong> 2026 capacity against the <strong>under-construction</strong> slice, stacked by fuel. The gap between the two bars is the attrition risk. Below each: the regional queue time, the headline reliability fact, and the flagship transmission or generation project to watch.</p>
+      </div>
+    </div>
+
+    <div class="figure-row">
+      <div class="figure">
+        <div class="chart-wrap">
+          <div class="chart-title">ERCOT · Texas</div>
+          <div class="chart-sub">2026 GW by fuel · queue 2.9 yrs</div>
+          <div class="chart-canvas"><canvas id="rgn-ercot"></canvas></div>
+        </div>
+        <div class="caption"><strong>Large-load +3.1% YoY</strong> (AI data centers + Permian electrification). Connect-and-manage keeps the fastest queue in the country. Watch: 765 kV Permian buildout.</div>
+      </div>
+      <div class="figure">
+        <div class="chart-wrap">
+          <div class="chart-title">PJM · Mid-Atlantic</div>
+          <div class="chart-sub">2026 GW by fuel · queue 7.2 yrs</div>
+          <div class="chart-canvas"><canvas id="rgn-pjm"></canvas></div>
+        </div>
+        <div class="caption"><strong>Capacity cleared $329/MW-day</strong> (≈10×). Reserve margin ~20% by 2030 if RRI fast-tracks. 67 GW queued battery, 39 GW gas — but wind waits 13.7 yrs.</div>
+      </div>
+    </div>
+
+    <div class="figure-row">
+      <div class="figure">
+        <div class="chart-wrap">
+          <div class="chart-title">MISO · Midwest</div>
+          <div class="chart-sub">2026 GW by fuel · queue 6.8 yrs</div>
+          <div class="chart-canvas"><canvas id="rgn-miso"></canvas></div>
+        </div>
+        <div class="caption"><strong>Summer scarcity to $666.50.</strong> 9 GW demand response; new 50%-of-peak queue cap. Watch: Cargas/Smalling 500/230 kV ($1.21B, Dec 2026).</div>
+      </div>
+      <div class="figure">
+        <div class="chart-wrap">
+          <div class="chart-title">SPP · Central Plains</div>
+          <div class="chart-sub">2026 GW by fuel · queue 6.4 yrs</div>
+          <div class="chart-canvas"><canvas id="rgn-spp"></canvas></div>
+        </div>
+        <div class="caption"><strong>Winter-2026 reserve margin 36%</strong> vs 16% summer; deficiency penalty $280/kW-yr (+64%). Watch: RTO West (Apr 1 2026); Wekiwa–Sooner 345 kV.</div>
+      </div>
+    </div>
+
+    <div class="figure-row">
+      <div class="figure">
+        <div class="chart-wrap">
+          <div class="chart-title">CAISO · California</div>
+          <div class="chart-sub">2026 GW by fuel · queue 8.5 yrs</div>
+          <div class="chart-canvas"><canvas id="rgn-caiso"></canvas></div>
+        </div>
+        <div class="caption"><strong>Battery fleet 12+ GW</strong> — already 25%+ of evening peak. Slowest queue in the country. Watch: Round Mountain 500 kV (90 mi, Q1 2026); EDAM.</div>
+      </div>
+      <div class="figure">
+        <div class="chart-wrap">
+          <div class="chart-title">ISO-NE · New England</div>
+          <div class="chart-sub">2026 GW by fuel · queue 6.5 yrs</div>
+          <div class="chart-canvas"><canvas id="rgn-isone"></canvas></div>
+        </div>
+        <div class="caption">Small, balanced queue. <strong>Seasonal capacity market proposed.</strong> Watch: NECEC transmission (145 mi, Jan 2026).</div>
+      </div>
+    </div>
+
+    <div class="figure-row">
+      <div class="figure">
+        <div class="chart-wrap">
+          <div class="chart-title">NYISO · New York</div>
+          <div class="chart-sub">2026 GW by fuel · queue ~7 yrs</div>
+          <div class="chart-canvas"><canvas id="rgn-nyiso"></canvas></div>
+        </div>
+        <div class="caption"><strong>NYC margin just 100–150 MW</strong> in early 2026 — the tightest in the country. Solar capacity credit only ~9.4% nameplate. Watch: Propel NY (~90 mi).</div>
+      </div>
+      <div class="figure">
+        <div class="chart-wrap">
+          <div class="chart-title">National fuel mix</div>
+          <div class="chart-sub">Share of total 2026 queued GW</div>
+          <div class="chart-canvas"><canvas id="nationalMix"></canvas></div>
+        </div>
+        <div class="caption">Battery leads the national queue, with gas and solar close behind — wind is a distant fourth under OBBBA's clock.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== REGION BY REGION — NON-ISO ===================== -->
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">09 / Regions</div>
+      <h2 class="section-title">The six large <em>non-ISO</em> utilities</h2>
+    </div>
+    <div class="section-body">
+      <div class="col-meta">Lighter touch</div>
+      <div class="col-body">
+        <p>Outside the organized markets, six vertically-integrated utilities run their own interconnection. They split cleanly into two camps: the <strong>West</strong> (AZPS, PacifiCorp, BPAT) is storage- and renewables-heavy; the <strong>Southeast</strong> (Duke, TVA, SoCo) is building gas and extending coal. Each chart is queued capacity by fuel.</p>
+      </div>
+    </div>
+
+    <div class="figure-row">
+      <div class="figure">
+        <div class="chart-wrap">
+          <div class="chart-title">AZPS · Arizona Public Service</div>
+          <div class="chart-sub">2026 queued GW by fuel</div>
+          <div class="chart-canvas short"><canvas id="rgn-azps"></canvas></div>
+        </div>
+        <div class="caption">Battery-dominant (22 GW queued, 7 GW under construction) — solar + storage to serve Phoenix-area data-center load.</div>
+      </div>
+      <div class="figure">
+        <div class="chart-wrap">
+          <div class="chart-title">PacifiCorp · Interior West</div>
+          <div class="chart-sub">2026 queued GW by fuel</div>
+          <div class="chart-canvas short"><canvas id="rgn-pacificorp"></canvas></div>
+        </div>
+        <div class="caption">Storage-led queue. Joining CAISO EDAM May 1 2026. Watch: Natrium advanced-nuclear (345 MW, 2030).</div>
+      </div>
+    </div>
+
+    <div class="figure-row">
+      <div class="figure">
+        <div class="chart-wrap">
+          <div class="chart-title">BPAT · Bonneville</div>
+          <div class="chart-sub">2026 queued GW by fuel</div>
+          <div class="chart-canvas short"><canvas id="rgn-bpat"></canvas></div>
+        </div>
+        <div class="caption">Hydro-anchored system; queue is almost entirely battery (~4 GW). Cluster study underway; potential SPP Markets+ path.</div>
+      </div>
+      <div class="figure">
+        <div class="chart-wrap">
+          <div class="chart-title">Duke · Carolinas</div>
+          <div class="chart-sub">2026 queued GW by fuel</div>
+          <div class="chart-canvas short"><canvas id="rgn-duke"></canvas></div>
+        </div>
+        <div class="caption">Gas-led (14 GW queued) alongside solar + storage. Watch: Belews Creek coal extended to 2040.</div>
+      </div>
+    </div>
+
+    <div class="figure-row">
+      <div class="figure">
+        <div class="chart-wrap">
+          <div class="chart-title">TVA · Tennessee Valley</div>
+          <div class="chart-sub">2026 queued GW by fuel</div>
+          <div class="chart-canvas short"><canvas id="rgn-tva"></canvas></div>
+        </div>
+        <div class="caption">Gas-heavy queue (~7 GW). Watch: Clinch River SMR — TVA's advanced-nuclear flagship.</div>
+      </div>
+      <div class="figure">
+        <div class="chart-wrap">
+          <div class="chart-title">SoCo · Southern Company</div>
+          <div class="chart-sub">2026 queued GW by fuel</div>
+          <div class="chart-canvas short"><canvas id="rgn-soco"></canvas></div>
+        </div>
+        <div class="caption">Modest queue; battery + gas. 8,200+ MW of coal retirements delayed to hold capacity for load growth.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WATCHLIST ===================== -->
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">10 / Signal</div>
+      <h2 class="section-title">What to <em>watch</em> in 2026</h2>
+    </div>
+    <div class="watchlist">
+      <div class="item">
+        <div class="num">01</div>
+        <div class="body">
+          <div class="head">The July-4 safe-harbor rush</div>
+          <div class="desc">OBBBA's physical-work / 5%-spend deadline pulls renewables decisions into H1 2026. Expect a wave of safe-harbor announcements, then a sharp drop in new wind/solar starts.</div>
+        </div>
+        <div class="tag bull">Catalyst</div>
+      </div>
+      <div class="item">
+        <div class="num">02</div>
+        <div class="body">
+          <div class="head">Battery becomes the swing fuel</div>
+          <div class="desc">With the ITC retained to 2036 and storage clearing queues fastest, batteries dominate the queue in ERCOT, PJM, CAISO and AZPS. Accreditation rules (Slice-of-Day, DLOL) decide who actually gets paid.</div>
+        </div>
+        <div class="tag bull">Structural</div>
+      </div>
+      <div class="item">
+        <div class="num">03</div>
+        <div class="body">
+          <div class="head">Capacity prices as the reliability tell</div>
+          <div class="desc">PJM at $329 and MISO at $666 are the market pricing scarcity that the queue can't relieve fast enough. Watch the next PJM auction and SPP's winter penalty regime.</div>
+        </div>
+        <div class="tag risk">Risk</div>
+      </div>
+      <div class="item">
+        <div class="num">04</div>
+        <div class="body">
+          <div class="head">AI load concentrates in the slow queues</div>
+          <div class="desc">ERCOT (+3.1% large load) clears fast; PJM, NYISO and CAISO face the steepest demand against the longest waits. The mismatch between where load lands and where capacity can connect is the core 2026 tension.</div>
+        </div>
+        <div class="tag risk">Risk</div>
+      </div>
+      <div class="item">
+        <div class="num">05</div>
+        <div class="body">
+          <div class="head">Market-footprint expansion</div>
+          <div class="desc">SPP RTO West (Apr 1), PacifiCorp into CAISO EDAM (May 1), and CAISO's EDAM build-out reshape who competes where. Watch BPA's path and any SPP Markets+ litigation.</div>
+        </div>
+        <div class="tag neutral">Watch</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>Coverage / Utilities · Grid &amp; Interconnection · v1.0</div>
+    <div>Source: Enverus, 2026 ISO Dynamics &amp; Market Trends. Capacity = interconnection-queue GW targeting 2026 first power. Region totals = sum of charted fuel categories. Values shown as "&lt;1" are charted at a nominal height.</div>
+  </footer>
+</div>
+
+<script>
+/* ---------- House Chart.js defaults (mirrors pwr.html) ---------- */
+Chart.defaults.font.family = "'Inter', system-ui, sans-serif";
+Chart.defaults.font.size = 12;
+Chart.defaults.color = "#3d3d3a";
+Chart.defaults.borderColor = "#dedcd1";
+Chart.defaults.elements.line.tension = 0.32;
+Chart.defaults.plugins.legend.labels.boxWidth = 10;
+Chart.defaults.plugins.legend.labels.boxHeight = 10;
+Chart.defaults.plugins.legend.labels.usePointStyle = true;
+Chart.defaults.plugins.legend.labels.pointStyle = 'rectRounded';
+Chart.defaults.plugins.legend.labels.font = { size: 12, weight: '400' };
+Chart.defaults.plugins.tooltip.backgroundColor = '#141413';
+Chart.defaults.plugins.tooltip.titleColor = '#faf9f5';
+Chart.defaults.plugins.tooltip.bodyColor = '#faf9f5';
+Chart.defaults.plugins.tooltip.borderColor = '#1f1e1d';
+Chart.defaults.plugins.tooltip.borderWidth = 1;
+Chart.defaults.plugins.tooltip.cornerRadius = 9.6;
+Chart.defaults.plugins.tooltip.padding = 12;
+Chart.defaults.plugins.tooltip.titleFont = { weight: '500', size: 12 };
+
+const COLORS = {
+  bg: "#faf9f5", surface: "#ffffff",
+  ink: "#141413", ink2: "#3d3d3a", ink3: "#73726c", ink4: "#9c9a92",
+  parchment: "#dedcd1", rule: "#dedcd1", azure: "#ccdbe8",
+  terra: "#d97757", terraSoft: "rgba(217,119,87,0.78)", terraFaint: "rgba(217,119,87,0.12)",
+  s1: "#d97757", s2: "#73726c", s3: "#a8a298", s4: "#ccdbe8", s5: "#dedcd1"
+};
+const gridStyle = { color: COLORS.parchment, drawTicks: false, drawBorder: false, lineWidth: 1 };
+
+/* Fuel palette — terra (solar) + azure (wind) brand colors, graphite/stone neutrals */
+const FUEL = {
+  solar:   { label: 'Solar',   color: COLORS.terra },
+  wind:    { label: 'Wind',    color: COLORS.azure },
+  battery: { label: 'Battery', color: COLORS.ink2 },
+  gas:     { label: 'Gas',     color: COLORS.s3 }
+};
+const gw = v => (v == null ? '—' : v.toLocaleString('en-US') + ' GW');
+
+/* ---------- Region dataset (Enverus) — [Solar, Wind, Battery, Gas] ---------- */
+const REGIONS = {
+  ercot:      { name: 'ERCOT',      q: [13.0, 3.7, 30.9, 6.7], uc: [7.9, 0.2, 8.8, 0.9], a25: 17.3 },
+  pjm:        { name: 'PJM',        q: [25.3, 6.1, 66.9, 38.7], uc: [4.7, 1.4, 0.4, 2.9], a25: 4.0 },
+  miso:       { name: 'MISO',       q: [29.0, 12.0, 21.0, 0.8], uc: [7.0, 1.2, 0.9, 2.3], a25: 7.3 },
+  spp:        { name: 'SPP',        q: [3.5, 3.7, 8.1, 6.5],     uc: [1.7, 0.9, 0.5, 1.0], a25: 3.7 },
+  caiso:      { name: 'CAISO',      q: [5.6, 0.6, 20.1, 1.8],    uc: [2.9, 0.1, 3.6, 0.0], a25: 8.6 },
+  isone:      { name: 'ISO-NE',     q: [2.8, 0.3, 2.9, 0.7],     uc: [0.2, 0.0, 0.0, 0.0], a25: 1.2 },
+  nyiso:      { name: 'NYISO',      q: [3.3, 0.5, 2.6, 1.1],     uc: [0.7, 0.5, 0.2, 0.0], a25: 0.4 },
+  azps:       { name: 'AZPS',       q: [6.2, 0.7, 22.2, 1.7],    uc: [5.9, 0.5, 7.0, 0.0] },
+  pacificorp: { name: 'PacifiCorp', q: [1.4, 1.4, 10.1, 0.7],    uc: [0.6, 0.4, 0.8, 0.0] },
+  bpat:       { name: 'BPAT',       q: [0.3, 0.2, 4.0, 0.0],     uc: [0.0, 0.0, 0.05, 0.0] },
+  soco:       { name: 'SoCo',       q: [0.6, 0.0, 1.9, 0.5],     uc: [0.0, 0.0, 1.0, 0.0] },
+  duke:       { name: 'Duke',       q: [7.4, 0.0, 4.0, 14.4],    uc: [2.3, 0.0, 1.0, 1.3] },
+  tva:        { name: 'TVA',        q: [0.7, 0.0, 0.5, 6.9],     uc: [0.4, 0.0, 0.0, 0.0] }
+};
+const FUEL_IDX = ['solar', 'wind', 'battery', 'gas'];
+
+/* ---------- Helpers ---------- */
+function stackedRegionChart(canvasId, regionKey) {
+  const r = REGIONS[regionKey];
+  const ds = FUEL_IDX.map((k, i) => ({
+    label: FUEL[k].label,
+    data: [r.q[i], r.uc[i]],
+    backgroundColor: FUEL[k].color,
+    borderRadius: 2,
+    stack: 'cap',
+    barThickness: 46
+  }));
+  new Chart(document.getElementById(canvasId), {
+    type: 'bar',
+    data: { labels: ['Queued', 'Under constr.'], datasets: ds },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', align: 'start' },
+        tooltip: { callbacks: { label: c => `${c.dataset.label}: ${gw(c.raw)}` } }
+      },
+      scales: {
+        x: { stacked: true, grid: { display: false }, ticks: { font: { size: 11 } } },
+        y: { stacked: true, grid: gridStyle, ticks: { callback: v => v + ' GW', font: { size: 11 } }, beginAtZero: true }
+      }
+    }
+  });
+}
+
+/* ---------- 01 · Funnel ---------- */
+new Chart(document.getElementById('funnel'), {
+  type: 'bar',
+  data: {
+    labels: ['Early queue (pre-study)', 'Study stage', 'Under construction'],
+    datasets: [{
+      data: [172, 291, 95],
+      backgroundColor: [COLORS.s3, COLORS.ink3, COLORS.terra],
+      borderRadius: 3,
+      barThickness: 46
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: c => gw(c.raw), footer: () => '~600 GW total targeting 2026 first power' } }
+    },
+    scales: {
+      x: { grid: gridStyle, ticks: { callback: v => v + ' GW' }, beginAtZero: true },
+      y: { grid: { display: false } }
+    }
+  }
+});
+
+/* ---------- 02 · Time to power by region ---------- */
+const ttpRegions = ['ercot', 'spp', 'isone', 'miso', 'nyiso', 'pjm', 'caiso'];
+const ttpVals    = [2.9, 6.4, 6.5, 6.8, 7.0, 7.2, 8.5];
+new Chart(document.getElementById('ttp'), {
+  type: 'bar',
+  data: {
+    labels: ttpRegions.map(k => REGIONS[k].name),
+    datasets: [{
+      data: ttpVals,
+      backgroundColor: ctx => ttpVals[ctx.dataIndex] <= 4.9 ? COLORS.terra : COLORS.ink2,
+      borderRadius: 3,
+      barThickness: 38
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: c => c.raw + ' yrs', footer: () => 'National average: 4.9 yrs' } }
+    },
+    scales: {
+      x: { grid: gridStyle, ticks: { callback: v => v + ' yr' }, beginAtZero: true, suggestedMax: 9 },
+      y: { grid: { display: false } }
+    }
+  }
+});
+
+/* ---------- 03 · Queue time by fuel ---------- */
+new Chart(document.getElementById('ttpFuel'), {
+  type: 'bar',
+  data: {
+    labels: ['Gas', 'Solar', 'Wind', 'Battery'],
+    datasets: [
+      { label: 'ERCOT', data: [2.8, 5.2, 4.7, 2.9],          backgroundColor: COLORS.terra, borderRadius: 2 },
+      { label: 'PJM',   data: [null, 6.9, 13.7, 6.9],         backgroundColor: COLORS.ink2,  borderRadius: 2 },
+      { label: 'MISO',  data: [7.1, null, 3.4, null],         backgroundColor: COLORS.s3,    borderRadius: 2 },
+      { label: 'SPP',   data: [null, null, 11.7, 2.1],        backgroundColor: COLORS.azure, borderRadius: 2 },
+      { label: 'CAISO', data: [null, 8.4, 8.7, 8.8],          backgroundColor: COLORS.ink4,  borderRadius: 2 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'bottom', align: 'start' },
+      tooltip: { callbacks: { label: c => c.raw == null ? null : `${c.dataset.label}: ${c.raw} yrs` } }
+    },
+    scales: {
+      x: { grid: { display: false } },
+      y: { grid: gridStyle, ticks: { callback: v => v + ' yr' }, beginAtZero: true }
+    }
+  }
+});
+
+/* ---------- 04 · Queued & Under-construction by region (stacked) ---------- */
+const allRegionKeys = ['pjm', 'miso', 'ercot', 'azps', 'caiso', 'spp', 'duke', 'pacificorp', 'tva', 'nyiso', 'isone', 'bpat', 'soco'];
+function buildStackedByRegion(canvasId, field) {
+  const labels = allRegionKeys.map(k => REGIONS[k].name);
+  const datasets = FUEL_IDX.map((k, i) => ({
+    label: FUEL[k].label,
+    data: allRegionKeys.map(rk => REGIONS[rk][field][i]),
+    backgroundColor: FUEL[k].color,
+    borderRadius: 2,
+    stack: 'cap'
+  }));
+  new Chart(document.getElementById(canvasId), {
+    type: 'bar',
+    data: { labels, datasets },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', align: 'start' },
+        tooltip: { callbacks: { label: c => `${c.dataset.label}: ${gw(c.raw)}` } }
+      },
+      scales: {
+        x: { stacked: true, grid: gridStyle, ticks: { callback: v => v + ' GW' }, beginAtZero: true },
+        y: { stacked: true, grid: { display: false }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+}
+buildStackedByRegion('queuedByRegion', 'q');
+buildStackedByRegion('ucByRegion', 'uc');
+
+/* ---------- 05 · Momentum: 2025 actual vs 2026 queued (ISOs) ---------- */
+const momRegions = ['ercot', 'pjm', 'miso', 'spp', 'caiso', 'isone', 'nyiso'];
+const sumQ = k => REGIONS[k].q.reduce((a, b) => a + b, 0);
+new Chart(document.getElementById('momentum'), {
+  type: 'bar',
+  data: {
+    labels: momRegions.map(k => REGIONS[k].name),
+    datasets: [
+      { label: '2025 actual', data: momRegions.map(k => REGIONS[k].a25), backgroundColor: COLORS.s3,   borderRadius: 2 },
+      { label: '2026 queued', data: momRegions.map(k => +sumQ(k).toFixed(1)), backgroundColor: COLORS.terra, borderRadius: 2 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'bottom', align: 'start' },
+      tooltip: { callbacks: { label: c => `${c.dataset.label}: ${gw(c.raw)}` } }
+    },
+    scales: {
+      x: { grid: { display: false } },
+      y: { grid: gridStyle, ticks: { callback: v => v + ' GW' }, beginAtZero: true }
+    }
+  }
+});
+
+/* ---------- 06 · Capacity prices ---------- */
+new Chart(document.getElementById('prices'), {
+  type: 'bar',
+  data: {
+    labels: ['PJM 2024/25', 'PJM 2026/27', 'MISO 2026 summer*'],
+    datasets: [{
+      data: [28.92, 329.17, 666.50],
+      backgroundColor: [COLORS.s3, COLORS.terra, COLORS.ink2],
+      borderRadius: 3,
+      barThickness: 64
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: c => '$' + c.raw.toLocaleString('en-US', { minimumFractionDigits: 2 }) + ' /MW-day' } }
+    },
+    scales: {
+      x: { grid: { display: false } },
+      y: { grid: gridStyle, ticks: { callback: v => '$' + v }, beginAtZero: true }
+    }
+  }
+});
+
+/* ---------- 08 · National fuel mix doughnut ---------- */
+const nationalFuelTotals = FUEL_IDX.map((k, i) =>
+  +Object.keys(REGIONS).reduce((a, rk) => a + REGIONS[rk].q[i], 0).toFixed(1)
+);
+new Chart(document.getElementById('nationalMix'), {
+  type: 'doughnut',
+  data: {
+    labels: FUEL_IDX.map(k => FUEL[k].label),
+    datasets: [{
+      data: nationalFuelTotals,
+      backgroundColor: FUEL_IDX.map(k => FUEL[k].color),
+      borderColor: COLORS.bg,
+      borderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    cutout: '62%',
+    plugins: {
+      legend: { position: 'bottom', align: 'start' },
+      tooltip: { callbacks: { label: c => `${c.label}: ${gw(c.raw)}` } }
+    }
+  }
+});
+
+/* ---------- 08–09 · Region-by-region stacked charts ---------- */
+['ercot', 'pjm', 'miso', 'spp', 'caiso', 'isone', 'nyiso',
+ 'azps', 'pacificorp', 'bpat', 'duke', 'tva', 'soco'].forEach(k => {
+  const el = document.getElementById('rgn-' + k);
+  if (el) stackedRegionChart('rgn-' + k, k);
+});
+</script>
+</body>
+</html>
