@@ -410,11 +410,197 @@
     </div>
   </section>
 
+  <!-- ===================== SYNTHESIS — WHY BATTERIES ===================== -->
+
+  <style>
+    /* Scoped flow-diagram styles — local to this page only */
+    .flow { margin-top: 8px; }
+    .flow-node {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius-lg);
+      padding: 22px 26px;
+    }
+    .flow-node .flow-kicker {
+      font-family: var(--sans);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.13em; text-transform: uppercase;
+      color: var(--ink-4);
+      margin-bottom: 8px;
+    }
+    .flow-node .flow-head {
+      font-family: var(--serif);
+      font-size: 19px; line-height: 1.3; color: var(--ink);
+      font-weight: 500;
+    }
+    .flow-node .flow-head em { font-style: italic; color: var(--accent); }
+    .flow-node .flow-sub {
+      font-family: var(--sans);
+      font-size: 13.5px; line-height: 1.55; color: var(--ink-3);
+      margin-top: 7px;
+    }
+    .flow-node .flow-stat {
+      font-family: var(--serif);
+      font-variant-numeric: tabular-nums;
+      font-size: 13px; color: var(--ink-2);
+      margin-top: 10px; padding-top: 10px;
+      border-top: 1px solid var(--rule);
+    }
+    .flow-node .flow-stat b { color: var(--ink); font-weight: 600; }
+
+    /* full-bleed emphasis nodes */
+    .flow-node.flow-trigger { background: var(--color-onyx); border-color: var(--color-onyx); }
+    .flow-node.flow-trigger .flow-kicker { color: rgba(250,249,245,0.55); }
+    .flow-node.flow-trigger .flow-head { color: var(--color-vellum-white); }
+    .flow-node.flow-trigger .flow-sub { color: rgba(250,249,245,0.72); }
+
+    .flow-node.flow-outcome {
+      background: var(--accent);
+      border-color: var(--accent);
+      text-align: center;
+    }
+    .flow-node.flow-outcome .flow-kicker { color: rgba(255,255,255,0.7); }
+    .flow-node.flow-outcome .flow-head { color: #fff; font-size: 22px; }
+    .flow-node.flow-outcome .flow-head em { color: #fff; font-style: italic; }
+    .flow-node.flow-outcome .flow-sub { color: rgba(255,255,255,0.85); }
+
+    .flow-row { display: grid; gap: 16px; }
+    .flow-row.cols-2 { grid-template-columns: 1fr 1fr; }
+    .flow-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    @media (max-width: 720px) {
+      .flow-row.cols-2, .flow-row.cols-3 { grid-template-columns: 1fr; }
+    }
+
+    /* connector between stages */
+    .flow-link {
+      display: flex; flex-direction: column; align-items: center;
+      padding: 12px 0;
+    }
+    .flow-link .flow-line { width: 1px; height: 18px; background: var(--color-stone); }
+    .flow-link .flow-arrow {
+      width: 0; height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 7px solid var(--color-stone);
+      margin-top: -1px;
+    }
+    .flow-link .flow-label {
+      font-family: var(--sans);
+      font-size: 11.5px; font-style: italic;
+      color: var(--ink-3);
+      margin-bottom: 8px; text-align: center;
+      max-width: 460px;
+    }
+    .flow-node .flow-tag {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 10.5px; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(217,119,87,0.4);
+      background: rgba(217,119,87,0.07);
+      border-radius: 999px;
+      padding: 2px 9px; margin-bottom: 10px;
+    }
+  </style>
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">10 / Synthesis</div>
+      <h2 class="section-title">Why the queue ends in <em>batteries</em></h2>
+    </div>
+    <div class="section-body">
+      <div class="col-meta">The logic</div>
+      <div class="col-body">
+        <p>Pull every thread above together and a single causal chain explains the storage surge. New load — overwhelmingly AI data centers — wants firm power on a timeline measured in months. The grid answers on a timeline measured in years. Batteries are the only resource that resolves both halves of that mismatch at once, which is why they top the 2026 queue in <strong>ERCOT, PJM, CAISO and AZPS</strong> alike.</p>
+      </div>
+    </div>
+
+    <div class="figure">
+      <div class="flow">
+
+        <div class="flow-node flow-trigger">
+          <div class="flow-kicker">The trigger</div>
+          <div class="flow-head">A wave of data-center load wants firm power — now.</div>
+          <div class="flow-sub">Hyperscale AI build-outs arrive in single requests measured in hundreds of megawatts to gigawatts, and they want to energize in months, not years.</div>
+        </div>
+
+        <div class="flow-link">
+          <div class="flow-label">…but the grid can't deliver on that timeline, for two reasons.</div>
+          <div class="flow-line"></div><div class="flow-arrow"></div>
+        </div>
+
+        <div class="flow-row cols-2">
+          <div class="flow-node">
+            <div class="flow-kicker">Blocker · 01</div>
+            <div class="flow-head">Interconnection gridlock</div>
+            <div class="flow-sub">A new plant joins a queue that takes years to clear — and a transmission upgrade can take longer still.</div>
+            <div class="flow-stat">Queue waits run <b>7.2 yrs in PJM</b> and <b>8.5 yrs in CAISO</b> against a <b>4.9-yr</b> national average.</div>
+          </div>
+          <div class="flow-node">
+            <div class="flow-kicker">Blocker · 02</div>
+            <div class="flow-head">Capacity is already short</div>
+            <div class="flow-sub">Where load outpaces what can connect, scarcity shows up directly in the capacity price.</div>
+            <div class="flow-stat">PJM cleared <b>$329/MW-day</b> (≈10×); MISO summer scarcity touched <b>$666</b>.</div>
+          </div>
+        </div>
+
+        <div class="flow-link">
+          <div class="flow-label">So load needs a resource defined by two properties at once:</div>
+          <div class="flow-line"></div><div class="flow-arrow"></div>
+        </div>
+
+        <div class="flow-node">
+          <div class="flow-kicker">The requirement</div>
+          <div class="flow-head">Fast to energize <em>and</em> dispatchable.</div>
+          <div class="flow-sub">Speed clears the interconnection problem; firmness clears the reliability problem. A resource that delivers only one of the two doesn't break the logjam.</div>
+        </div>
+
+        <div class="flow-link">
+          <div class="flow-label">Batteries are the resource that satisfies both — for three structural reasons.</div>
+          <div class="flow-line"></div><div class="flow-arrow"></div>
+        </div>
+
+        <div class="flow-row cols-3">
+          <div class="flow-node">
+            <div class="flow-tag">Speed</div>
+            <div class="flow-head">Modular &amp; quick to build</div>
+            <div class="flow-sub">A storage project is sited and energized in months, sidestepping the multi-year wait a new gas plant or transmission line requires.</div>
+          </div>
+          <div class="flow-node">
+            <div class="flow-tag">Policy</div>
+            <div class="flow-head">ITC retained to 2036</div>
+            <div class="flow-sub">OBBBA phases out the wind &amp; solar credits on a hard 2026–27 clock but leaves the grid-scale battery ITC intact — a decade-long subsidy edge.</div>
+          </div>
+          <div class="flow-node">
+            <div class="flow-tag">Access</div>
+            <div class="flow-head">Connect-and-manage &amp; peak-shaving</div>
+            <div class="flow-sub">Flexible interconnection (ERCOT's model) and behind-the-meter siting let storage plug in without waiting on the full network upgrade.</div>
+          </div>
+        </div>
+
+        <div class="flow-link">
+          <div class="flow-line"></div><div class="flow-arrow"></div>
+        </div>
+
+        <div class="flow-node flow-outcome">
+          <div class="flow-kicker">The outcome</div>
+          <div class="flow-head">Batteries lead the 2026 interconnection queue.</div>
+          <div class="flow-sub">PJM 66.9 GW · AZPS 22.2 GW · ERCOT 30.9 GW · CAISO 20.1 GW queued — storage is the single largest fuel in the national queue.</div>
+        </div>
+
+      </div>
+      <div class="caption">A logical chain, not a forecast — each link is sourced above. The behind-the-meter and economics framing draws on <em>Works in Progress</em>, "Why American data centers can't plug in" (2025).</div>
+    </div>
+
+    <blockquote class="pull">The fastest way onto a grid that can't add capacity is to stop waiting on the grid — batteries, sited flexibly, are how new load buys speed and firmness at the same time.<cite>Synthesis · Enverus 2026 ISO Dynamics &amp; Works in Progress</cite></blockquote>
+  </section>
+
   <!-- ===================== WATCHLIST ===================== -->
 
   <section>
     <div class="section-header">
-      <div class="section-num">10 / Signal</div>
+      <div class="section-num">11 / Signal</div>
       <h2 class="section-title">What to <em>watch</em> in 2026</h2>
     </div>
     <div class="watchlist">
