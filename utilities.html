@@ -156,6 +156,16 @@
         <div class="caption">Between queue and construction: capacity with an executed interconnection agreement. MISO leads on contracted gas + battery; PJM's signed volume is strikingly thin against its 67 GW battery queue.</div>
       </div>
     </div>
+    <div class="figure-row">
+      <div class="figure">
+        <div class="chart-wrap">
+          <div class="chart-title">The full funnel — every region, three tiers</div>
+          <div class="chart-sub">GW · queued capacity vs. signed agreements vs. under construction · summed across fuels</div>
+          <div class="chart-canvas" style="height: 640px;"><canvas id="funnelByRegion"></canvas></div>
+        </div>
+        <div class="caption">All thirteen regions on one scale. The grouped bars trace the conversion funnel: the queue (faint) is the raw ambition, signed GIAs are the contracted middle, and under-construction is the only near-certain 2026 supply. The wider the gap between the pale bar and the terra one, the steeper the attrition.</div>
+      </div>
+    </div>
   </section>
 
   <section>
@@ -972,6 +982,42 @@ function buildStackedByRegion(canvasId, field) {
 buildStackedByRegion('queuedByRegion', 'q');
 buildStackedByRegion('ucByRegion', 'uc');
 buildStackedByRegion('iaByRegion', 'ia');
+
+/* ---------- 04 · Combined funnel by region — queued / IA signed / under construction ---------- */
+function buildFunnelByRegion(canvasId) {
+  const sum = (rk, field) => REGIONS[rk][field].reduce((a, b) => a + b, 0);
+  const labels = allRegionKeys.map(k => REGIONS[k].name);
+  const metrics = [
+    { label: 'Queued capacity',    field: 'q',  color: COLORS.ink4 },
+    { label: 'IA signed',          field: 'ia', color: COLORS.ink2 },
+    { label: 'Under construction', field: 'uc', color: COLORS.terra }
+  ];
+  const datasets = metrics.map(m => ({
+    label: m.label,
+    data: allRegionKeys.map(rk => +sum(rk, m.field).toFixed(1)),
+    backgroundColor: m.color,
+    borderRadius: 2,
+    barPercentage: 0.82,
+    categoryPercentage: 0.74
+  }));
+  new Chart(document.getElementById(canvasId), {
+    type: 'bar',
+    data: { labels, datasets },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', align: 'start' },
+        tooltip: { callbacks: { label: c => `${c.dataset.label}: ${gw(c.raw)}` } }
+      },
+      scales: {
+        x: { grid: gridStyle, ticks: { callback: v => v + ' GW' }, beginAtZero: true },
+        y: { grid: { display: false }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+}
+buildFunnelByRegion('funnelByRegion');
 
 /* ---------- 05 · Momentum: 2025 actual vs 2026 queued (ISOs) ---------- */
 const momRegions = ['ercot', 'pjm', 'miso', 'spp', 'caiso', 'isone', 'nyiso'];
