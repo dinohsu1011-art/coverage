@@ -159,11 +159,19 @@
     <div class="figure-row">
       <div class="figure">
         <div class="chart-wrap">
-          <div class="chart-title">The full funnel — every region, three tiers</div>
-          <div class="chart-sub">GW · queued capacity vs. signed agreements vs. under construction · summed across fuels</div>
-          <div class="chart-canvas" style="height: 640px;"><canvas id="funnelByRegion"></canvas></div>
+          <div class="chart-title">The funnel across the seven ISOs</div>
+          <div class="chart-sub">GW · queued vs. signed vs. under construction · summed across fuels</div>
+          <div class="chart-canvas" style="height: 420px;"><canvas id="funnelIso"></canvas></div>
         </div>
-        <div class="caption">All thirteen regions on one scale. The grouped bars trace the conversion funnel: the queue (faint) is the raw ambition, signed GIAs are the contracted middle, and under-construction is the only near-certain 2026 supply. The wider the gap between the pale bar and the terra one, the steeper the attrition.</div>
+        <div class="caption">Organized markets. The grouped bars trace the conversion funnel: the queue (faint) is the raw ambition, signed GIAs the contracted middle, under-construction the only near-certain 2026 supply.</div>
+      </div>
+      <div class="figure">
+        <div class="chart-wrap">
+          <div class="chart-title">The funnel across the six non-ISO utilities</div>
+          <div class="chart-sub">GW · queued vs. signed vs. under construction · summed across fuels</div>
+          <div class="chart-canvas" style="height: 420px;"><canvas id="funnelNonIso"></canvas></div>
+        </div>
+        <div class="caption">Vertically-integrated utilities running their own interconnection. The wider the gap between the pale bar and the terra one, the steeper the attrition.</div>
       </div>
     </div>
   </section>
@@ -984,9 +992,11 @@ buildStackedByRegion('ucByRegion', 'uc');
 buildStackedByRegion('iaByRegion', 'ia');
 
 /* ---------- 04 · Combined funnel by region — queued / IA signed / under construction ---------- */
-function buildFunnelByRegion(canvasId) {
+const isoKeys    = ['pjm', 'miso', 'ercot', 'caiso', 'spp', 'nyiso', 'isone'];
+const nonIsoKeys = ['azps', 'pacificorp', 'duke', 'tva', 'bpat', 'soco'];
+function buildFunnelByRegion(canvasId, keys) {
   const sum = (rk, field) => REGIONS[rk][field].reduce((a, b) => a + b, 0);
-  const labels = allRegionKeys.map(k => REGIONS[k].name);
+  const labels = keys.map(k => REGIONS[k].name);
   const metrics = [
     { label: 'Queued capacity',    field: 'q',  color: COLORS.ink4 },
     { label: 'IA signed',          field: 'ia', color: COLORS.ink2 },
@@ -994,11 +1004,11 @@ function buildFunnelByRegion(canvasId) {
   ];
   const datasets = metrics.map(m => ({
     label: m.label,
-    data: allRegionKeys.map(rk => +sum(rk, m.field).toFixed(1)),
+    data: keys.map(rk => +sum(rk, m.field).toFixed(1)),
     backgroundColor: m.color,
     borderRadius: 2,
-    barPercentage: 0.82,
-    categoryPercentage: 0.74
+    barPercentage: 0.86,
+    categoryPercentage: 0.72
   }));
   new Chart(document.getElementById(canvasId), {
     type: 'bar',
@@ -1017,7 +1027,8 @@ function buildFunnelByRegion(canvasId) {
     }
   });
 }
-buildFunnelByRegion('funnelByRegion');
+buildFunnelByRegion('funnelIso', isoKeys);
+buildFunnelByRegion('funnelNonIso', nonIsoKeys);
 
 /* ---------- 05 · Momentum: 2025 actual vs 2026 queued (ISOs) ---------- */
 const momRegions = ['ercot', 'pjm', 'miso', 'spp', 'caiso', 'isone', 'nyiso'];
